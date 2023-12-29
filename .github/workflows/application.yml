@@ -27,6 +27,8 @@ jobs:
           flutter-version: "3.16.5"
       - name: Install Dependency
         run: flutter pub get
+      - name: Format codes
+        run: dart format
       - name: Build iOS App
         run: flutter build ios --simulator
       - name: Build Android App
