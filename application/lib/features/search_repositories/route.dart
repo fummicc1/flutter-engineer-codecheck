@@ -1,6 +1,6 @@
 import 'package:application/features/repository_detail/route.dart';
 import 'package:application/features/search_repositories/page.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 part 'route.g.dart';
