@@ -1,4 +1,6 @@
+import 'package:application/features/repository_detail/route.dart';
 import 'package:application/features/search_repositories/private_components/repository_search_bar.dart';
+import 'package:application/features/search_repositories/route.dart';
 import 'package:application/features/search_repositories/state.dart';
 import 'package:application/services/repository.service.dart';
 import 'package:application/ui_components/page_state.dart';
@@ -101,7 +103,12 @@ class SearchRepositoriesPage extends HookConsumerWidget {
                     return ListTile(
                       title: Text(repository.name),
                       subtitle: Text(repository.description),
-                      onTap: () {},
+                      onTap: () {
+                        final selectedRepositoryId = repository.id;
+                        RepositoryDetailRoute(
+                                repositoryId: selectedRepositoryId)
+                            .go(context);
+                      },
                     );
                   },
                 ),

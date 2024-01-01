@@ -20,6 +20,7 @@ Repository _$RepositoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Repository {
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
@@ -35,7 +36,7 @@ abstract class $RepositoryCopyWith<$Res> {
           Repository value, $Res Function(Repository) then) =
       _$RepositoryCopyWithImpl<$Res, Repository>;
   @useResult
-  $Res call({String name, String description});
+  $Res call({int id, String name, String description});
 }
 
 /// @nodoc
@@ -51,10 +52,15 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? description = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -75,7 +81,7 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       __$$RepositoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String description});
+  $Res call({int id, String name, String description});
 }
 
 /// @nodoc
@@ -89,10 +95,15 @@ class __$$RepositoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? description = null,
   }) {
     return _then(_$RepositoryImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -108,11 +119,14 @@ class __$$RepositoryImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RepositoryImpl implements _Repository {
-  _$RepositoryImpl({required this.name, required this.description});
+  _$RepositoryImpl(
+      {required this.id, required this.name, required this.description});
 
   factory _$RepositoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepositoryImplFromJson(json);
 
+  @override
+  final int id;
   @override
   final String name;
   @override
@@ -120,7 +134,7 @@ class _$RepositoryImpl implements _Repository {
 
   @override
   String toString() {
-    return 'Repository(name: $name, description: $description)';
+    return 'Repository(id: $id, name: $name, description: $description)';
   }
 
   @override
@@ -128,6 +142,7 @@ class _$RepositoryImpl implements _Repository {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RepositoryImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -135,7 +150,7 @@ class _$RepositoryImpl implements _Repository {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description);
+  int get hashCode => Object.hash(runtimeType, id, name, description);
 
   @JsonKey(ignore: true)
   @override
@@ -153,12 +168,15 @@ class _$RepositoryImpl implements _Repository {
 
 abstract class _Repository implements Repository {
   factory _Repository(
-      {required final String name,
+      {required final int id,
+      required final String name,
       required final String description}) = _$RepositoryImpl;
 
   factory _Repository.fromJson(Map<String, dynamic> json) =
       _$RepositoryImpl.fromJson;
 
+  @override
+  int get id;
   @override
   String get name;
   @override
