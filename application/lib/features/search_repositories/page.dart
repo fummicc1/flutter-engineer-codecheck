@@ -49,11 +49,6 @@ class SearchRepositoriesPage extends HookConsumerWidget {
                   state: state,
                 ),
               ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Search'),
-              ),
             ],
           ),
         );
