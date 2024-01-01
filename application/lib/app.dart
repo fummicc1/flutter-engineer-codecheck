@@ -13,18 +13,69 @@ class App extends ConsumerWidget {
       routerConfig: GoRouter(routes: $appRoutes, initialLocation: "/search"),
       title: 'GitHub Search Repositories',
       theme: ThemeData(
+        brightness: MediaQuery.platformBrightnessOf(context),
         primarySwatch: ref.watch(appColorProvider).primaryColor,
-        secondaryHeaderColor: ref.watch(appColorProvider).secondaryColor,
         colorScheme: ColorScheme.fromSwatch(
+          brightness: MediaQuery.platformBrightnessOf(context),
           primarySwatch: ref.watch(appColorProvider).primaryColor,
-          backgroundColor: ref.watch(appColorProvider).backgroundColor,
+          backgroundColor: ref.watch(appColorProvider).backgroundColor(
+                MediaQuery.platformBrightnessOf(context),
+              ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          contentPadding: const EdgeInsets.all(12.0),
+          fillColor: ref.watch(appColorProvider).backgroundColor(
+                MediaQuery.platformBrightnessOf(context),
+              ),
         ),
         textTheme: TextTheme(
           bodyLarge: TextStyle(
-            color: ref.watch(appColorProvider).textColor,
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
           ),
           bodyMedium: TextStyle(
-            color: ref.watch(appColorProvider).textColor,
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
+          ),
+          bodySmall: TextStyle(
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
+          ),
+          labelLarge: TextStyle(
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
+          ),
+          labelMedium: TextStyle(
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
+          ),
+          labelSmall: TextStyle(
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
+          ),
+          headlineLarge: TextStyle(
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
+          ),
+          headlineMedium: TextStyle(
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
+          ),
+          headlineSmall: TextStyle(
+            color: ref.watch(appColorProvider).textColor(
+                  MediaQuery.platformBrightnessOf(context),
+                ),
           ),
         ),
       ),

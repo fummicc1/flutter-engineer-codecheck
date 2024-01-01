@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -22,23 +23,30 @@ class AppColor {
       900: Color(0xFF004D40),
     },
   );
-  MaterialColor secondaryColor =
-      const MaterialColor(_secondaryValue, <int, Color>{
-    500: Color(_secondaryValue),
-  });
-  MaterialAccentColor accentColor =
-      const MaterialAccentColor(_accentValue, <int, Color>{
-    100: Color(0xFF80CBC4),
-    200: Color(_accentValue),
-    400: Color(0xFF26A69A),
-    700: Color(0xFF00796B),
-  });
-  Color backgroundColor = const Color(_backgroundValue);
-  Color textColor = const Color(_textValue);
+
+  Color backgroundColor(Brightness brightness) {
+    return brightness == Brightness.light
+        ? const Color(_backgroundValueLight)
+        : const Color(_backgroundValueDark);
+  }
+
+  Color textColor(Brightness brightness) {
+    if (kDebugMode) {
+      print(brightness);
+    }
+    return brightness == Brightness.light ? textColorLight : textColorDark;
+  }
+
+  Color textColorLight = const Color(_textValue);
+  Color textColorDark = const Color(_textValueDark);
 
   static const int _primaryValue = 0xFF009688;
-  static const int _secondaryValue = 0xFFE0F2F1;
-  static const int _accentValue = 0xFFE0F2F1;
-  static const int _backgroundValue = 0xFFE0F2F1;
+  static const int _backgroundValueLight = 0xFFE0F2F1;
+  static const int _backgroundValueDark = 0xFF333E3D;
+  // ignore: unused_field
+  static const int _secondaryBackgroundValueLight = 0xFFA5B6B5;
+  // ignore: unused_field
+  static const int _secondaryBackgroundValueDark = 0xFF6A7A79;
   static const int _textValue = 0xFF000000;
+  static const int _textValueDark = 0xFFF0F0F0;
 }
