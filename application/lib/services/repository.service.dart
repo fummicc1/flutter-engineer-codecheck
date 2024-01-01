@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:application/models/repository.model.dart';
-import 'package:application/network/github_repositor.request.dart';
+import 'package:application/network/github_repository.request.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -11,8 +11,6 @@ part 'repository.service.g.dart';
 RepositoryService repositoryService(ref) => RepositoryService();
 
 class RepositoryService {
-  get http => null;
-
   Future<List<Repository>> getRepositories({required String query}) async {
     try {
       final response = await GetGitHubRepositoryRequest(query: query).send();
