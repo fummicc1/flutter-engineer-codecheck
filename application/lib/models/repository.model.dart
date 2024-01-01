@@ -6,6 +6,7 @@ part 'repository.model.g.dart';
 @freezed
 sealed class Repository with _$Repository {
   factory Repository({
+    required int id,
     required String name,
     required String description,
   }) = _Repository;
