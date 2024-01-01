@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:application/models/repository.model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 
@@ -23,7 +20,7 @@ mixin NetworkRequest {
       };
   Future<Response> send() async {
     if (kDebugMode) {
-      String curl = 'curl -X ${method}';
+      String curl = 'curl -X $method';
       for (final header in headers.entries) {
         curl += ' -H "${header.key}: ${header.value}"';
       }
