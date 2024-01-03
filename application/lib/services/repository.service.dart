@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:application/models/repository.model.dart';
 import 'package:application/network/api_client.dart';
-import 'package:application/network/github_repository.request.dart';
+import 'package:application/network/github_repository_search.request.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -19,10 +19,10 @@ class RepositoryService {
   final APIClient _apiClient;
 
   Future<List<Repository>>
-      getRepositories<R extends GetGitHubRepositoryRequest>(
+      getRepositories<R extends GetGitHubRepositorySearchRequest>(
           {required String query}) async {
     try {
-      final request = GetGitHubRepositoryRequest(query: query);
+      final request = GetGitHubRepositorySearchRequest(query: query);
       final response = await _apiClient.send(request);
       if (response.statusCode == 200) {
         final Map<String, dynamic> repositoriesJson =
