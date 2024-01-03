@@ -32,8 +32,7 @@ void main() {
         ),
       );
       final response = await repositoryService.getRepositories(query: query);
-      final callCount = verify(apiClient.send(any)).callCount;
-      expect(callCount, 1);
+      verify(apiClient.send(any)).called(1);
       expect(response, repositoriesStub);
     });
 
