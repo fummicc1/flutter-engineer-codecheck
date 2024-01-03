@@ -1,7 +1,7 @@
 import 'package:application/network/request.dart';
 
-class GetGitHubRepositoryRequest with NetworkRequest {
-  GetGitHubRepositoryRequest({required this.query});
+class GetGitHubRepositorySearchRequest with NetworkRequest {
+  GetGitHubRepositorySearchRequest({required this.query});
 
   final String query;
 
