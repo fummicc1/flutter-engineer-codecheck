@@ -6,10 +6,9 @@
 import 'dart:async' as _i3;
 
 import 'package:application/models/repository.model.dart' as _i4;
-import 'package:application/network/github_repository_search.request.dart'
-    as _i5;
 import 'package:application/services/repository.service.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i5;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -29,18 +28,55 @@ import 'package:mockito/mockito.dart' as _i1;
 /// See the documentation for Mockito's code generation for more information.
 class MockRepositoryService extends _i1.Mock implements _i2.RepositoryService {
   @override
-  _i3.Future<List<_i4.Repository>>
-      getRepositories<R extends _i5.GetGitHubRepositorySearchRequest>(
-              {required String? query}) =>
-          (super.noSuchMethod(
-            Invocation.method(
-              #getRepositories,
-              [],
-              {#query: query},
-            ),
-            returnValue:
-                _i3.Future<List<_i4.Repository>>.value(<_i4.Repository>[]),
-            returnValueForMissingStub:
-                _i3.Future<List<_i4.Repository>>.value(<_i4.Repository>[]),
-          ) as _i3.Future<List<_i4.Repository>>);
+  _i3.Future<List<_i4.Repository>> getRepositories({required String? query}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRepositories,
+          [],
+          {#query: query},
+        ),
+        returnValue: _i3.Future<List<_i4.Repository>>.value(<_i4.Repository>[]),
+        returnValueForMissingStub:
+            _i3.Future<List<_i4.Repository>>.value(<_i4.Repository>[]),
+      ) as _i3.Future<List<_i4.Repository>>);
+
+  @override
+  _i3.Future<_i4.Repository> getRepository({
+    required String? owner,
+    required String? name,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRepository,
+          [],
+          {
+            #owner: owner,
+            #name: name,
+          },
+        ),
+        returnValue:
+            _i3.Future<_i4.Repository>.value(_i5.dummyValue<_i4.Repository>(
+          this,
+          Invocation.method(
+            #getRepository,
+            [],
+            {
+              #owner: owner,
+              #name: name,
+            },
+          ),
+        )),
+        returnValueForMissingStub:
+            _i3.Future<_i4.Repository>.value(_i5.dummyValue<_i4.Repository>(
+          this,
+          Invocation.method(
+            #getRepository,
+            [],
+            {
+              #owner: owner,
+              #name: name,
+            },
+          ),
+        )),
+      ) as _i3.Future<_i4.Repository>);
 }
