@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 
 class APIClient {
-  Future send<R extends NetworkRequest>(R request) async {
+  Future<Response> send(NetworkRequest request) async {
     final method = request.method;
     final uri = request.uri;
     final headers = request.headers;
