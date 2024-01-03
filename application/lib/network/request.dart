@@ -1,6 +1,3 @@
-import 'package:flutter/foundation.dart';
-import 'package:http/http.dart';
-
 mixin NetworkRequest {
   String get baseURL;
   String get path;
@@ -18,26 +15,4 @@ mixin NetworkRequest {
         "Authorization":
             "Bearer ${const String.fromEnvironment("GITHUB_REST_API_AUTHORIZATION_TOKEN")}"
       };
-  Future<Response> send() async {
-    if (kDebugMode) {
-      String curl = 'curl -X $method';
-      for (final header in headers.entries) {
-        curl += ' -H "${header.key}: ${header.value}"';
-      }
-      if (body.isNotEmpty) {
-        curl += ' -d \'${body.toString()}\'';
-      }
-      curl += ' $uri';
-      print(curl);
-    }
-    if (method == 'GET') {
-      final response = await get(uri, headers: headers);
-      return response;
-    } else if (method == 'POST') {
-      final response = await post(uri, headers: headers, body: body);
-      return response;
-    } else {
-      throw Exception('Unsupported HTTP method: $method');
-    }
-  }
 }
