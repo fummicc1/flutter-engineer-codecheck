@@ -115,9 +115,10 @@ class SearchRepositoriesPage extends FeaturePage<SearchRepositoriesState> {
                   title: Text(repository.name),
                   subtitle: Text(repository.description),
                   onTap: () {
-                    final selectedRepositoryId = repository.id;
-                    RepositoryDetailRoute(repositoryId: selectedRepositoryId)
-                        .go(context);
+                    RepositoryDetailRoute(
+                      owner: repository.owner.login,
+                      repo: repository.name,
+                    ).go(context);
                   },
                 );
               },
