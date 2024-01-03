@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-abstract class FeatureState {
-  factory FeatureState.initial() => throw UnimplementedError();
-}
+abstract class FeatureState {}
 
 class FeaturePage<S extends FeatureState> extends HookConsumerWidget {
   const FeaturePage({
@@ -25,12 +23,15 @@ class FeaturePage<S extends FeatureState> extends HookConsumerWidget {
     );
   }
 
-  Widget initial(WidgetRef ref, ValueNotifier<PageState> pageState, S state) =>
+  Widget initial(
+          WidgetRef ref, ValueNotifier<PageState<S>> pageState, S state) =>
       throw UnimplementedError();
 
-  Widget loading(WidgetRef ref, ValueNotifier<PageState> pageState, S state) =>
+  Widget loading(
+          WidgetRef ref, ValueNotifier<PageState<S>> pageState, S state) =>
       throw UnimplementedError();
 
-  Widget loaded(WidgetRef ref, ValueNotifier<PageState> pageState, S state) =>
+  Widget loaded(
+          WidgetRef ref, ValueNotifier<PageState<S>> pageState, S state) =>
       throw UnimplementedError();
 }

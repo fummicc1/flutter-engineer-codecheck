@@ -17,7 +17,9 @@ class SearchRepositoriesPage extends FeaturePage<SearchRepositoriesState> {
         );
 
   @override
-  Widget initial(WidgetRef ref, ValueNotifier<PageState> pageState,
+  Widget initial(
+      WidgetRef ref,
+      ValueNotifier<PageState<SearchRepositoriesState>> pageState,
       SearchRepositoriesState state) {
     useEffect(
       () {
@@ -56,7 +58,9 @@ class SearchRepositoriesPage extends FeaturePage<SearchRepositoriesState> {
   }
 
   @override
-  Widget loading(WidgetRef ref, ValueNotifier<PageState> pageState,
+  Widget loading(
+      WidgetRef ref,
+      ValueNotifier<PageState<SearchRepositoriesState>> pageState,
       SearchRepositoriesState state) {
     return Scaffold(
       appBar: AppBar(
@@ -83,7 +87,9 @@ class SearchRepositoriesPage extends FeaturePage<SearchRepositoriesState> {
   }
 
   @override
-  Widget loaded(WidgetRef ref, ValueNotifier<PageState> pageState,
+  Widget loaded(
+      WidgetRef ref,
+      ValueNotifier<PageState<SearchRepositoriesState>> pageState,
       SearchRepositoriesState state) {
     final repositories = state.repositories;
     return Scaffold(
