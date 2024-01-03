@@ -14,6 +14,6 @@ part 'route.g.dart';
 class SearchRepositoriesRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SearchRepositoriesPage();
+    return SearchRepositoriesPage();
   }
 }

@@ -25,7 +25,7 @@ void main() {
           overrides: [
             repositoryServiceProvider.overrideWith((ref) => repositoryService),
           ],
-          child: const MaterialApp(
+          child: MaterialApp(
             home: SearchRepositoriesPage(),
           ),
         );
@@ -45,7 +45,7 @@ void main() {
           overrides: [
             repositoryServiceProvider.overrideWith((ref) => repositoryService),
           ],
-          child: const MaterialApp(
+          child: MaterialApp(
             home: SearchRepositoriesPage(),
           ),
         );
@@ -73,7 +73,7 @@ void main() {
           overrides: [
             repositoryServiceProvider.overrideWith((ref) => repositoryService),
           ],
-          child: const MaterialApp(
+          child: MaterialApp(
             home: SearchRepositoriesPage(),
           ),
         );
