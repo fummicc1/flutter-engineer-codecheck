@@ -21,6 +21,7 @@ Repository _$RepositoryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Repository {
   int get id => throw _privateConstructorUsedError;
+  RepositoryOwner get owner => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
@@ -36,7 +37,9 @@ abstract class $RepositoryCopyWith<$Res> {
           Repository value, $Res Function(Repository) then) =
       _$RepositoryCopyWithImpl<$Res, Repository>;
   @useResult
-  $Res call({int id, String name, String description});
+  $Res call({int id, RepositoryOwner owner, String name, String description});
+
+  $RepositoryOwnerCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -53,6 +56,7 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
   @override
   $Res call({
     Object? id = null,
+    Object? owner = null,
     Object? name = null,
     Object? description = null,
   }) {
@@ -61,6 +65,10 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      owner: null == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as RepositoryOwner,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -70,6 +78,14 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
           : description // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RepositoryOwnerCopyWith<$Res> get owner {
+    return $RepositoryOwnerCopyWith<$Res>(_value.owner, (value) {
+      return _then(_value.copyWith(owner: value) as $Val);
+    });
   }
 }
 
@@ -81,7 +97,10 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       __$$RepositoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String description});
+  $Res call({int id, RepositoryOwner owner, String name, String description});
+
+  @override
+  $RepositoryOwnerCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -96,6 +115,7 @@ class __$$RepositoryImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? owner = null,
     Object? name = null,
     Object? description = null,
   }) {
@@ -104,6 +124,10 @@ class __$$RepositoryImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      owner: null == owner
+          ? _value.owner
+          : owner // ignore: cast_nullable_to_non_nullable
+              as RepositoryOwner,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -120,7 +144,10 @@ class __$$RepositoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RepositoryImpl implements _Repository {
   _$RepositoryImpl(
-      {required this.id, required this.name, required this.description});
+      {required this.id,
+      required this.owner,
+      required this.name,
+      required this.description});
 
   factory _$RepositoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepositoryImplFromJson(json);
@@ -128,13 +155,15 @@ class _$RepositoryImpl implements _Repository {
   @override
   final int id;
   @override
+  final RepositoryOwner owner;
+  @override
   final String name;
   @override
   final String description;
 
   @override
   String toString() {
-    return 'Repository(id: $id, name: $name, description: $description)';
+    return 'Repository(id: $id, owner: $owner, name: $name, description: $description)';
   }
 
   @override
@@ -143,6 +172,7 @@ class _$RepositoryImpl implements _Repository {
         (other.runtimeType == runtimeType &&
             other is _$RepositoryImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -150,7 +180,7 @@ class _$RepositoryImpl implements _Repository {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, description);
+  int get hashCode => Object.hash(runtimeType, id, owner, name, description);
 
   @JsonKey(ignore: true)
   @override
@@ -169,6 +199,7 @@ class _$RepositoryImpl implements _Repository {
 abstract class _Repository implements Repository {
   factory _Repository(
       {required final int id,
+      required final RepositoryOwner owner,
       required final String name,
       required final String description}) = _$RepositoryImpl;
 
@@ -178,11 +209,151 @@ abstract class _Repository implements Repository {
   @override
   int get id;
   @override
+  RepositoryOwner get owner;
+  @override
   String get name;
   @override
   String get description;
   @override
   @JsonKey(ignore: true)
   _$$RepositoryImplCopyWith<_$RepositoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+RepositoryOwner _$RepositoryOwnerFromJson(Map<String, dynamic> json) {
+  return _RepositoryOwner.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RepositoryOwner {
+  String get login => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RepositoryOwnerCopyWith<RepositoryOwner> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RepositoryOwnerCopyWith<$Res> {
+  factory $RepositoryOwnerCopyWith(
+          RepositoryOwner value, $Res Function(RepositoryOwner) then) =
+      _$RepositoryOwnerCopyWithImpl<$Res, RepositoryOwner>;
+  @useResult
+  $Res call({String login});
+}
+
+/// @nodoc
+class _$RepositoryOwnerCopyWithImpl<$Res, $Val extends RepositoryOwner>
+    implements $RepositoryOwnerCopyWith<$Res> {
+  _$RepositoryOwnerCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? login = null,
+  }) {
+    return _then(_value.copyWith(
+      login: null == login
+          ? _value.login
+          : login // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$RepositoryOwnerImplCopyWith<$Res>
+    implements $RepositoryOwnerCopyWith<$Res> {
+  factory _$$RepositoryOwnerImplCopyWith(_$RepositoryOwnerImpl value,
+          $Res Function(_$RepositoryOwnerImpl) then) =
+      __$$RepositoryOwnerImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String login});
+}
+
+/// @nodoc
+class __$$RepositoryOwnerImplCopyWithImpl<$Res>
+    extends _$RepositoryOwnerCopyWithImpl<$Res, _$RepositoryOwnerImpl>
+    implements _$$RepositoryOwnerImplCopyWith<$Res> {
+  __$$RepositoryOwnerImplCopyWithImpl(
+      _$RepositoryOwnerImpl _value, $Res Function(_$RepositoryOwnerImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? login = null,
+  }) {
+    return _then(_$RepositoryOwnerImpl(
+      login: null == login
+          ? _value.login
+          : login // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$RepositoryOwnerImpl implements _RepositoryOwner {
+  _$RepositoryOwnerImpl({required this.login});
+
+  factory _$RepositoryOwnerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RepositoryOwnerImplFromJson(json);
+
+  @override
+  final String login;
+
+  @override
+  String toString() {
+    return 'RepositoryOwner(login: $login)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RepositoryOwnerImpl &&
+            (identical(other.login, login) || other.login == login));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, login);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RepositoryOwnerImplCopyWith<_$RepositoryOwnerImpl> get copyWith =>
+      __$$RepositoryOwnerImplCopyWithImpl<_$RepositoryOwnerImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RepositoryOwnerImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RepositoryOwner implements RepositoryOwner {
+  factory _RepositoryOwner({required final String login}) =
+      _$RepositoryOwnerImpl;
+
+  factory _RepositoryOwner.fromJson(Map<String, dynamic> json) =
+      _$RepositoryOwnerImpl.fromJson;
+
+  @override
+  String get login;
+  @override
+  @JsonKey(ignore: true)
+  _$$RepositoryOwnerImplCopyWith<_$RepositoryOwnerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
