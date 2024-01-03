@@ -8,7 +8,7 @@ part 'route.g.dart';
 @TypedGoRoute<SearchRepositoriesRoute>(
   path: "/search",
   routes: [
-    TypedGoRoute<RepositoryDetailRoute>(path: "repository/:repositoryId")
+    TypedGoRoute<RepositoryDetailRoute>(path: "repository/:owner/:repo")
   ],
 )
 class SearchRepositoriesRoute extends GoRouteData {

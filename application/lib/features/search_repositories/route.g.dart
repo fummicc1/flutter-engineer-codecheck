@@ -15,7 +15,7 @@ RouteBase get $searchRepositoriesRoute => GoRouteData.$route(
       factory: $SearchRepositoriesRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
-          path: 'repository/:repositoryId',
+          path: 'repository/:owner/:repo',
           factory: $RepositoryDetailRouteExtension._fromState,
         ),
       ],
@@ -42,11 +42,12 @@ extension $SearchRepositoriesRouteExtension on SearchRepositoriesRoute {
 extension $RepositoryDetailRouteExtension on RepositoryDetailRoute {
   static RepositoryDetailRoute _fromState(GoRouterState state) =>
       RepositoryDetailRoute(
-        repositoryId: int.parse(state.pathParameters['repositoryId']!),
+        owner: state.pathParameters['owner']!,
+        repo: state.pathParameters['repo']!,
       );
 
   String get location => GoRouteData.$location(
-        '/search/repository/${Uri.encodeComponent(repositoryId.toString())}',
+        '/search/repository/${Uri.encodeComponent(owner)}/${Uri.encodeComponent(repo)}',
       );
 
   void go(BuildContext context) => context.go(location);

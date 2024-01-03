@@ -1,22 +1,29 @@
+import 'package:application/features/repository_detail/state.dart';
+import 'package:application/models/repository_nature_id.model.dart';
+import 'package:application/ui_components/page.dart';
+import 'package:application/ui_components/page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RepositoryDetailPage extends ConsumerWidget {
-  const RepositoryDetailPage({
-    required Key key,
-    required this.repositoryId,
-  }) : super(key: key);
-
-  final int repositoryId;
+class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
+  RepositoryDetailPage({
+    Key? key,
+    required RepositoryNatureId repositoryId,
+  }) : super(
+          key: key,
+          initialPageState: RepositoryDetailState.initial(
+            repositoryId: repositoryId,
+          ),
+        );
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget initial(
+      WidgetRef ref,
+      ValueNotifier<PageState<RepositoryDetailState>> pageState,
+      RepositoryDetailState state) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(repositoryId.toString()),
-      ),
-      body: const Center(
-        child: Text('Repository Detail'),
+      body: Center(
+        child: Text('${state.repositoryId.owner}/${state.repositoryId.repo}'),
       ),
     );
   }
