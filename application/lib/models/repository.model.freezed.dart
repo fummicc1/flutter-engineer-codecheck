@@ -24,6 +24,10 @@ mixin _$Repository {
   RepositoryOwner get owner => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String get language => throw _privateConstructorUsedError;
+  int get watchers => throw _privateConstructorUsedError;
+  int get forks => throw _privateConstructorUsedError;
+  int get openIssues => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +41,15 @@ abstract class $RepositoryCopyWith<$Res> {
           Repository value, $Res Function(Repository) then) =
       _$RepositoryCopyWithImpl<$Res, Repository>;
   @useResult
-  $Res call({int id, RepositoryOwner owner, String name, String description});
+  $Res call(
+      {int id,
+      RepositoryOwner owner,
+      String name,
+      String description,
+      String language,
+      int watchers,
+      int forks,
+      int openIssues});
 
   $RepositoryOwnerCopyWith<$Res> get owner;
 }
@@ -59,6 +71,10 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
     Object? owner = null,
     Object? name = null,
     Object? description = null,
+    Object? language = null,
+    Object? watchers = null,
+    Object? forks = null,
+    Object? openIssues = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -77,6 +93,22 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
+      watchers: null == watchers
+          ? _value.watchers
+          : watchers // ignore: cast_nullable_to_non_nullable
+              as int,
+      forks: null == forks
+          ? _value.forks
+          : forks // ignore: cast_nullable_to_non_nullable
+              as int,
+      openIssues: null == openIssues
+          ? _value.openIssues
+          : openIssues // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -97,7 +129,15 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       __$$RepositoryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, RepositoryOwner owner, String name, String description});
+  $Res call(
+      {int id,
+      RepositoryOwner owner,
+      String name,
+      String description,
+      String language,
+      int watchers,
+      int forks,
+      int openIssues});
 
   @override
   $RepositoryOwnerCopyWith<$Res> get owner;
@@ -118,6 +158,10 @@ class __$$RepositoryImplCopyWithImpl<$Res>
     Object? owner = null,
     Object? name = null,
     Object? description = null,
+    Object? language = null,
+    Object? watchers = null,
+    Object? forks = null,
+    Object? openIssues = null,
   }) {
     return _then(_$RepositoryImpl(
       id: null == id
@@ -136,18 +180,39 @@ class __$$RepositoryImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
+      watchers: null == watchers
+          ? _value.watchers
+          : watchers // ignore: cast_nullable_to_non_nullable
+              as int,
+      forks: null == forks
+          ? _value.forks
+          : forks // ignore: cast_nullable_to_non_nullable
+              as int,
+      openIssues: null == openIssues
+          ? _value.openIssues
+          : openIssues // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _$RepositoryImpl implements _Repository {
   _$RepositoryImpl(
       {required this.id,
       required this.owner,
       required this.name,
-      required this.description});
+      required this.description,
+      required this.language,
+      required this.watchers,
+      required this.forks,
+      required this.openIssues});
 
   factory _$RepositoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepositoryImplFromJson(json);
@@ -160,10 +225,18 @@ class _$RepositoryImpl implements _Repository {
   final String name;
   @override
   final String description;
+  @override
+  final String language;
+  @override
+  final int watchers;
+  @override
+  final int forks;
+  @override
+  final int openIssues;
 
   @override
   String toString() {
-    return 'Repository(id: $id, owner: $owner, name: $name, description: $description)';
+    return 'Repository(id: $id, owner: $owner, name: $name, description: $description, language: $language, watchers: $watchers, forks: $forks, openIssues: $openIssues)';
   }
 
   @override
@@ -175,12 +248,20 @@ class _$RepositoryImpl implements _Repository {
             (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            (identical(other.watchers, watchers) ||
+                other.watchers == watchers) &&
+            (identical(other.forks, forks) || other.forks == forks) &&
+            (identical(other.openIssues, openIssues) ||
+                other.openIssues == openIssues));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, owner, name, description);
+  int get hashCode => Object.hash(runtimeType, id, owner, name, description,
+      language, watchers, forks, openIssues);
 
   @JsonKey(ignore: true)
   @override
@@ -201,7 +282,11 @@ abstract class _Repository implements Repository {
       {required final int id,
       required final RepositoryOwner owner,
       required final String name,
-      required final String description}) = _$RepositoryImpl;
+      required final String description,
+      required final String language,
+      required final int watchers,
+      required final int forks,
+      required final int openIssues}) = _$RepositoryImpl;
 
   factory _Repository.fromJson(Map<String, dynamic> json) =
       _$RepositoryImpl.fromJson;
@@ -214,6 +299,14 @@ abstract class _Repository implements Repository {
   String get name;
   @override
   String get description;
+  @override
+  String get language;
+  @override
+  int get watchers;
+  @override
+  int get forks;
+  @override
+  int get openIssues;
   @override
   @JsonKey(ignore: true)
   _$$RepositoryImplCopyWith<_$RepositoryImpl> get copyWith =>

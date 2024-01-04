@@ -5,11 +5,17 @@ part 'repository.model.g.dart';
 
 @freezed
 sealed class Repository with _$Repository {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   factory Repository({
     required int id,
     required RepositoryOwner owner,
     required String name,
     required String description,
+    required String language,
+    required int watchers,
+    required int forks,
+    required int openIssues,
   }) = _Repository;
 
   factory Repository.fromJson(Map<String, dynamic> json) =>
