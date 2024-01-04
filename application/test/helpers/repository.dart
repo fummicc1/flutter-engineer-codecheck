@@ -11,6 +11,10 @@ class RepositoryTestHelper {
         ),
         name: faker.lorem.word(),
         description: faker.lorem.sentences(3).join("\n"),
+        language: "Dart",
+        watchers: faker.randomGenerator.integer(100),
+        forks: faker.randomGenerator.integer(100),
+        openIssues: faker.randomGenerator.integer(100),
       );
     });
   }

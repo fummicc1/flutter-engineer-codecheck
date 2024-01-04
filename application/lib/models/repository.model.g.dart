@@ -12,6 +12,10 @@ _$RepositoryImpl _$$RepositoryImplFromJson(Map<String, dynamic> json) =>
       owner: RepositoryOwner.fromJson(json['owner'] as Map<String, dynamic>),
       name: json['name'] as String,
       description: json['description'] as String,
+      language: json['language'] as String,
+      watchers: json['watchers'] as int,
+      forks: json['forks'] as int,
+      openIssues: json['open_issues'] as int,
     );
 
 Map<String, dynamic> _$$RepositoryImplToJson(_$RepositoryImpl instance) =>
@@ -20,6 +24,10 @@ Map<String, dynamic> _$$RepositoryImplToJson(_$RepositoryImpl instance) =>
       'owner': instance.owner,
       'name': instance.name,
       'description': instance.description,
+      'language': instance.language,
+      'watchers': instance.watchers,
+      'forks': instance.forks,
+      'open_issues': instance.openIssues,
     };
 
 _$RepositoryOwnerImpl _$$RepositoryOwnerImplFromJson(
