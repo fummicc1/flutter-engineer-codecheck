@@ -10,19 +10,29 @@ class GitHubOwnerCard extends StatelessWidget {
 
   final String? avatarUrl;
   final String name;
+  final maxImageSize = 32;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: avatarUrl == null
+    return Row(
+      children: [
+        avatarUrl == null
             ? const SizedBox.shrink()
-            : CircleAvatar(
-                backgroundColor: Colors.transparent,
-                foregroundImage: CachedNetworkImageProvider(avatarUrl!),
+            : Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                ),
+                child: CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  foregroundImage: CachedNetworkImageProvider(
+                    avatarUrl!,
+                    maxHeight: maxImageSize,
+                    maxWidth: maxImageSize,
+                  ),
+                ),
               ),
-        title: Text(name),
-      ),
+        Text(name),
+      ],
     );
   }
 }
