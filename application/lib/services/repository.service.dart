@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:application/models/repository.model.dart';
+import 'package:application/models/repository_readme.model.dart';
 import 'package:application/network/api_client.dart';
 import 'package:application/network/github_repository_find.request.dart';
+import 'package:application/network/github_repository_readme.request.dart';
 import 'package:application/network/github_repository_search.request.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -55,6 +57,35 @@ class RepositoryService {
         return repository;
       } else {
         throw Exception('Failed to load repository');
+      }
+    } catch (err) {
+      if (kDebugMode) {
+        print(err);
+      }
+      rethrow;
+    }
+  }
+
+  Future<RepositoryReadMe> getRepositoryReadMe({
+    required String owner,
+    required String name,
+  }) async {
+    try {
+      final request = GetGitHubRepositoryReadMeRequest(
+        owner: owner,
+        name: name,
+      );
+      final response = await _apiClient.send(request);
+      if (response.statusCode == 200) {
+        final content = response.body;
+        final repositoryReadMe = RepositoryReadMe(
+          content: content,
+          owner: owner,
+          name: name,
+        );
+        return repositoryReadMe;
+      } else {
+        throw Exception('Failed to load repository readme');
       }
     } catch (err) {
       if (kDebugMode) {
