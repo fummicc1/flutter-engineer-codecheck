@@ -1,8 +1,10 @@
 import 'package:application/features/repository_detail/state.dart';
+import 'package:application/models/language.model.dart';
 import 'package:application/models/repository.model.dart';
 import 'package:application/models/repository_nature_id.model.dart';
 import 'package:application/services/repository.service.dart';
 import 'package:application/ui_components/github_owner_card.dart';
+import 'package:application/ui_components/language_chip.dart';
 import 'package:application/ui_components/page.dart';
 import 'package:application/ui_components/page_state.dart';
 import 'package:flutter/material.dart';
@@ -75,14 +77,28 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
                 name: repository.owner.login,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  repository.name,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        repository.name,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
-                ),
-              ),
+                      repository.language == null
+                          ? const SizedBox.shrink()
+                          : Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 4,
+                              ),
+                              child: LanguageChip(
+                                language: repository.language!,
+                              ),
+                            ),
+                    ],
+                  )),
               Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
