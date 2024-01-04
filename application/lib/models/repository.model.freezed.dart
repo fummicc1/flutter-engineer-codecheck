@@ -24,6 +24,7 @@ mixin _$Repository {
   RepositoryOwner get owner => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  RepositoryVisibility get visibility => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
   int get watchers => throw _privateConstructorUsedError;
   int get forks => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $RepositoryCopyWith<$Res> {
       RepositoryOwner owner,
       String name,
       String description,
+      RepositoryVisibility visibility,
       String? language,
       int watchers,
       int forks,
@@ -71,6 +73,7 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
     Object? owner = null,
     Object? name = null,
     Object? description = null,
+    Object? visibility = null,
     Object? language = freezed,
     Object? watchers = null,
     Object? forks = null,
@@ -93,6 +96,10 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      visibility: null == visibility
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as RepositoryVisibility,
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
@@ -134,6 +141,7 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       RepositoryOwner owner,
       String name,
       String description,
+      RepositoryVisibility visibility,
       String? language,
       int watchers,
       int forks,
@@ -158,6 +166,7 @@ class __$$RepositoryImplCopyWithImpl<$Res>
     Object? owner = null,
     Object? name = null,
     Object? description = null,
+    Object? visibility = null,
     Object? language = freezed,
     Object? watchers = null,
     Object? forks = null,
@@ -180,6 +189,10 @@ class __$$RepositoryImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      visibility: null == visibility
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as RepositoryVisibility,
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
@@ -209,6 +222,7 @@ class _$RepositoryImpl implements _Repository {
       required this.owner,
       required this.name,
       required this.description,
+      required this.visibility,
       required this.language,
       required this.watchers,
       required this.forks,
@@ -226,6 +240,8 @@ class _$RepositoryImpl implements _Repository {
   @override
   final String description;
   @override
+  final RepositoryVisibility visibility;
+  @override
   final String? language;
   @override
   final int watchers;
@@ -236,7 +252,7 @@ class _$RepositoryImpl implements _Repository {
 
   @override
   String toString() {
-    return 'Repository(id: $id, owner: $owner, name: $name, description: $description, language: $language, watchers: $watchers, forks: $forks, openIssues: $openIssues)';
+    return 'Repository(id: $id, owner: $owner, name: $name, description: $description, visibility: $visibility, language: $language, watchers: $watchers, forks: $forks, openIssues: $openIssues)';
   }
 
   @override
@@ -249,6 +265,8 @@ class _$RepositoryImpl implements _Repository {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.visibility, visibility) ||
+                other.visibility == visibility) &&
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.watchers, watchers) ||
@@ -261,7 +279,7 @@ class _$RepositoryImpl implements _Repository {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, owner, name, description,
-      language, watchers, forks, openIssues);
+      visibility, language, watchers, forks, openIssues);
 
   @JsonKey(ignore: true)
   @override
@@ -283,6 +301,7 @@ abstract class _Repository implements Repository {
       required final RepositoryOwner owner,
       required final String name,
       required final String description,
+      required final RepositoryVisibility visibility,
       required final String? language,
       required final int watchers,
       required final int forks,
@@ -299,6 +318,8 @@ abstract class _Repository implements Repository {
   String get name;
   @override
   String get description;
+  @override
+  RepositoryVisibility get visibility;
   @override
   String? get language;
   @override

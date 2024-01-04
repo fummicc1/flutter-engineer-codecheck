@@ -11,6 +11,7 @@ class RepositoryTestHelper {
           avatarUrl: "https://picsum.photos/200",
         ),
         name: faker.lorem.word(),
+        visibility: RepositoryVisibility.public,
         description: faker.lorem.sentences(3).join("\n"),
         language: "Dart",
         watchers: faker.randomGenerator.integer(100),

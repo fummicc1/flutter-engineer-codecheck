@@ -12,6 +12,8 @@ _$RepositoryImpl _$$RepositoryImplFromJson(Map<String, dynamic> json) =>
       owner: RepositoryOwner.fromJson(json['owner'] as Map<String, dynamic>),
       name: json['name'] as String,
       description: json['description'] as String,
+      visibility:
+          $enumDecode(_$RepositoryVisibilityEnumMap, json['visibility']),
       language: json['language'] as String?,
       watchers: json['watchers'] as int,
       forks: json['forks'] as int,
@@ -24,11 +26,17 @@ Map<String, dynamic> _$$RepositoryImplToJson(_$RepositoryImpl instance) =>
       'owner': instance.owner,
       'name': instance.name,
       'description': instance.description,
+      'visibility': _$RepositoryVisibilityEnumMap[instance.visibility]!,
       'language': instance.language,
       'watchers': instance.watchers,
       'forks': instance.forks,
       'open_issues': instance.openIssues,
     };
+
+const _$RepositoryVisibilityEnumMap = {
+  RepositoryVisibility.public: 'public',
+  RepositoryVisibility.private: 'private',
+};
 
 _$RepositoryOwnerImpl _$$RepositoryOwnerImplFromJson(
         Map<String, dynamic> json) =>
