@@ -53,6 +53,7 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
       WidgetRef ref,
       ValueNotifier<PageState<RepositoryDetailState>> pageState,
       RepositoryDetailState state) {
+    final context = useContext();
     final repository = state.repository;
     if (repository == null) {
       return const Center(child: CircularProgressIndicator());
@@ -65,10 +66,74 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               GitHubOwnerCard(
                 avatarUrl: repository.owner.avatarUrl,
                 name: repository.owner.login,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  repository.name,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  repository.description,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          repository.watchers.toString(),
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        Text(
+                          "Watchers",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          repository.forks.toString(),
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        Text(
+                          "Forks",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          repository.openIssues.toString(),
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        Text(
+                          "Open Issues",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
