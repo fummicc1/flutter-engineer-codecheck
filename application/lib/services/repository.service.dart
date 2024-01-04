@@ -27,9 +27,9 @@ class RepositoryService {
         final Map<String, dynamic> repositoriesJson =
             json.decode(response.body);
         final repositoryItems = repositoriesJson['items'] as List;
-        final repositories = repositoryItems
-            .map((repositoryJson) => Repository.fromJson(repositoryJson))
-            .toList();
+        final repositories = repositoryItems.map((repositoryJson) {
+          return Repository.fromJson(repositoryJson);
+        }).toList();
         return repositories;
       } else {
         throw Exception('Failed to load repositories');

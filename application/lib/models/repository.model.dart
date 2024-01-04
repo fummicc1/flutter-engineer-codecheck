@@ -12,7 +12,7 @@ sealed class Repository with _$Repository {
     required RepositoryOwner owner,
     required String name,
     required String description,
-    required String language,
+    required String? language,
     required int watchers,
     required int forks,
     required int openIssues,
@@ -24,8 +24,11 @@ sealed class Repository with _$Repository {
 
 @freezed
 class RepositoryOwner with _$RepositoryOwner {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(fieldRename: FieldRename.snake)
   factory RepositoryOwner({
     required String login,
+    required String avatarUrl,
   }) = _RepositoryOwner;
 
   factory RepositoryOwner.fromJson(Map<String, dynamic> json) =>

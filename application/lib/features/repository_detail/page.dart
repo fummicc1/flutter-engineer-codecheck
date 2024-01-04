@@ -1,6 +1,7 @@
 import 'package:application/features/repository_detail/state.dart';
 import 'package:application/models/repository_nature_id.model.dart';
 import 'package:application/services/repository.service.dart';
+import 'package:application/ui_components/github_owner_card.dart';
 import 'package:application/ui_components/page.dart';
 import 'package:application/ui_components/page_state.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,10 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Text(repository.description),
+              GitHubOwnerCard(
+                avatarUrl: repository.owner.avatarUrl,
+                name: repository.owner.login,
+              ),
             ],
           ),
         ),

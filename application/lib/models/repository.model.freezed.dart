@@ -24,7 +24,7 @@ mixin _$Repository {
   RepositoryOwner get owner => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
   int get watchers => throw _privateConstructorUsedError;
   int get forks => throw _privateConstructorUsedError;
   int get openIssues => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $RepositoryCopyWith<$Res> {
       RepositoryOwner owner,
       String name,
       String description,
-      String language,
+      String? language,
       int watchers,
       int forks,
       int openIssues});
@@ -71,7 +71,7 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
     Object? owner = null,
     Object? name = null,
     Object? description = null,
-    Object? language = null,
+    Object? language = freezed,
     Object? watchers = null,
     Object? forks = null,
     Object? openIssues = null,
@@ -93,10 +93,10 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      language: null == language
+      language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       watchers: null == watchers
           ? _value.watchers
           : watchers // ignore: cast_nullable_to_non_nullable
@@ -134,7 +134,7 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       RepositoryOwner owner,
       String name,
       String description,
-      String language,
+      String? language,
       int watchers,
       int forks,
       int openIssues});
@@ -158,7 +158,7 @@ class __$$RepositoryImplCopyWithImpl<$Res>
     Object? owner = null,
     Object? name = null,
     Object? description = null,
-    Object? language = null,
+    Object? language = freezed,
     Object? watchers = null,
     Object? forks = null,
     Object? openIssues = null,
@@ -180,10 +180,10 @@ class __$$RepositoryImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      language: null == language
+      language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       watchers: null == watchers
           ? _value.watchers
           : watchers // ignore: cast_nullable_to_non_nullable
@@ -226,7 +226,7 @@ class _$RepositoryImpl implements _Repository {
   @override
   final String description;
   @override
-  final String language;
+  final String? language;
   @override
   final int watchers;
   @override
@@ -283,7 +283,7 @@ abstract class _Repository implements Repository {
       required final RepositoryOwner owner,
       required final String name,
       required final String description,
-      required final String language,
+      required final String? language,
       required final int watchers,
       required final int forks,
       required final int openIssues}) = _$RepositoryImpl;
@@ -300,7 +300,7 @@ abstract class _Repository implements Repository {
   @override
   String get description;
   @override
-  String get language;
+  String? get language;
   @override
   int get watchers;
   @override
@@ -320,6 +320,7 @@ RepositoryOwner _$RepositoryOwnerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepositoryOwner {
   String get login => throw _privateConstructorUsedError;
+  String get avatarUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -333,7 +334,7 @@ abstract class $RepositoryOwnerCopyWith<$Res> {
           RepositoryOwner value, $Res Function(RepositoryOwner) then) =
       _$RepositoryOwnerCopyWithImpl<$Res, RepositoryOwner>;
   @useResult
-  $Res call({String login});
+  $Res call({String login, String avatarUrl});
 }
 
 /// @nodoc
@@ -350,11 +351,16 @@ class _$RepositoryOwnerCopyWithImpl<$Res, $Val extends RepositoryOwner>
   @override
   $Res call({
     Object? login = null,
+    Object? avatarUrl = null,
   }) {
     return _then(_value.copyWith(
       login: null == login
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatarUrl: null == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -368,7 +374,7 @@ abstract class _$$RepositoryOwnerImplCopyWith<$Res>
       __$$RepositoryOwnerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String login});
+  $Res call({String login, String avatarUrl});
 }
 
 /// @nodoc
@@ -383,30 +389,38 @@ class __$$RepositoryOwnerImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? login = null,
+    Object? avatarUrl = null,
   }) {
     return _then(_$RepositoryOwnerImpl(
       login: null == login
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
               as String,
+      avatarUrl: null == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _$RepositoryOwnerImpl implements _RepositoryOwner {
-  _$RepositoryOwnerImpl({required this.login});
+  _$RepositoryOwnerImpl({required this.login, required this.avatarUrl});
 
   factory _$RepositoryOwnerImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepositoryOwnerImplFromJson(json);
 
   @override
   final String login;
+  @override
+  final String avatarUrl;
 
   @override
   String toString() {
-    return 'RepositoryOwner(login: $login)';
+    return 'RepositoryOwner(login: $login, avatarUrl: $avatarUrl)';
   }
 
   @override
@@ -414,12 +428,14 @@ class _$RepositoryOwnerImpl implements _RepositoryOwner {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RepositoryOwnerImpl &&
-            (identical(other.login, login) || other.login == login));
+            (identical(other.login, login) || other.login == login) &&
+            (identical(other.avatarUrl, avatarUrl) ||
+                other.avatarUrl == avatarUrl));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, login);
+  int get hashCode => Object.hash(runtimeType, login, avatarUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -437,14 +453,17 @@ class _$RepositoryOwnerImpl implements _RepositoryOwner {
 }
 
 abstract class _RepositoryOwner implements RepositoryOwner {
-  factory _RepositoryOwner({required final String login}) =
-      _$RepositoryOwnerImpl;
+  factory _RepositoryOwner(
+      {required final String login,
+      required final String avatarUrl}) = _$RepositoryOwnerImpl;
 
   factory _RepositoryOwner.fromJson(Map<String, dynamic> json) =
       _$RepositoryOwnerImpl.fromJson;
 
   @override
   String get login;
+  @override
+  String get avatarUrl;
   @override
   @JsonKey(ignore: true)
   _$$RepositoryOwnerImplCopyWith<_$RepositoryOwnerImpl> get copyWith =>

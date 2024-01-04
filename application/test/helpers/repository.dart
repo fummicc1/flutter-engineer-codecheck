@@ -8,6 +8,7 @@ class RepositoryTestHelper {
         id: index + 1,
         owner: RepositoryOwner(
           login: faker.person.name(),
+          avatarUrl: "https://picsum.photos/200",
         ),
         name: faker.lorem.word(),
         description: faker.lorem.sentences(3).join("\n"),
