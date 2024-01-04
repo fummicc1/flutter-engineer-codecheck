@@ -1,3 +1,4 @@
+import 'package:application/models/language.model.dart';
 import 'package:application/models/repository.model.dart';
 import 'package:faker/faker.dart';
 
@@ -13,7 +14,7 @@ class RepositoryTestHelper {
         name: faker.lorem.word(),
         visibility: RepositoryVisibility.public,
         description: faker.lorem.sentences(3).join("\n"),
-        language: "Dart",
+        language: Language.dart,
         watchers: faker.randomGenerator.integer(100),
         forks: faker.randomGenerator.integer(100),
         openIssues: faker.randomGenerator.integer(100),
