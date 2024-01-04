@@ -14,7 +14,8 @@ _$RepositoryImpl _$$RepositoryImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       visibility:
           $enumDecode(_$RepositoryVisibilityEnumMap, json['visibility']),
-      language: $enumDecodeNullable(_$LanguageEnumMap, json['language']),
+      language: $enumDecodeNullable(_$LanguageEnumMap, json['language'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       watchers: json['watchers'] as int,
       forks: json['forks'] as int,
       openIssues: json['open_issues'] as int,
@@ -47,12 +48,14 @@ const _$LanguageEnumMap = {
   Language.javaScript: 'JavaScript',
   Language.python: 'Python',
   Language.ruby: 'Ruby',
-  Language.php: 'Php',
+  Language.php: 'PHP',
   Language.go: 'Go',
   Language.c: 'C',
   Language.csharp: 'CSharp',
   Language.cpp: 'C++',
   Language.rust: 'Rust',
+  Language.html: 'HTML',
+  Language.css: 'CSS',
 };
 
 _$RepositoryOwnerImpl _$$RepositoryOwnerImplFromJson(
