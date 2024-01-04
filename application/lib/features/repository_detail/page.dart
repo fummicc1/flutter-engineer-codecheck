@@ -8,7 +8,9 @@ import 'package:application/ui_components/page.dart';
 import 'package:application/ui_components/page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:markdown/markdown.dart' hide Text;
 
 class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
   RepositoryDetailPage({
@@ -60,6 +62,26 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
     if (repository == null) {
       return const Center(child: CircularProgressIndicator());
     }
+    useEffect(
+      () {
+        Future(() async {
+          if (state.readMe != null) {
+            return;
+          }
+          final readme =
+              await ref.watch(repositoryServiceProvider).getRepositoryReadMe(
+                    owner: state.repositoryId.owner,
+                    name: state.repositoryId.repo,
+                  );
+          pageState.value = PageState.loaded(
+            state.copyWith(
+              readMe: readme,
+            ),
+          );
+        });
+        return null;
+      },
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text('${state.repositoryId.owner}/${state.repositoryId.repo}'),
@@ -167,6 +189,25 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
                   ),
                 ],
               ),
+              const SizedBox(height: 16),
+              Text(
+                "README",
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              const SizedBox(height: 16),
+              if (state.readMe == null)
+                const Center(child: CircularProgressIndicator())
+              else
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: MarkdownBody(
+                      data: state.readMe!.content,
+                      extensionSet: ExtensionSet.gitHubFlavored,
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
