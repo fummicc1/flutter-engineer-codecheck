@@ -18,7 +18,7 @@ enum Language {
   python,
   @JsonValue('Ruby')
   ruby,
-  @JsonValue('Php')
+  @JsonValue('PHP')
   php,
   @JsonValue('Go')
   go,
@@ -30,6 +30,10 @@ enum Language {
   cpp,
   @JsonValue('Rust')
   rust,
+  @JsonValue("HTML")
+  html,
+  @JsonValue("CSS")
+  css,
 }
 
 extension LanguageExtension on Language {
@@ -63,6 +67,10 @@ extension LanguageExtension on Language {
         return 'C++';
       case Language.rust:
         return 'Rust';
+      case Language.html:
+        return 'HTML';
+      case Language.css:
+        return 'CSS';
     }
   }
 
@@ -97,6 +105,10 @@ extension LanguageExtension on Language {
         return const Color(0xFFF34B7D);
       case Language.rust:
         return const Color(0xFFDEA584);
+      case Language.html:
+        return const Color(0xFFE34C26);
+      case Language.css:
+        return const Color(0xFF563D7C);
     }
   }
 }

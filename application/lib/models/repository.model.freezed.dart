@@ -24,7 +24,9 @@ mixin _$Repository {
   RepositoryOwner get owner => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  RepositoryVisibility get visibility => throw _privateConstructorUsedError;
+  RepositoryVisibility get visibility =>
+      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   Language? get language => throw _privateConstructorUsedError;
   int get watchers => throw _privateConstructorUsedError;
   int get forks => throw _privateConstructorUsedError;
@@ -48,6 +50,7 @@ abstract class $RepositoryCopyWith<$Res> {
       String name,
       String description,
       RepositoryVisibility visibility,
+      @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       Language? language,
       int watchers,
       int forks,
@@ -142,6 +145,7 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       String name,
       String description,
       RepositoryVisibility visibility,
+      @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       Language? language,
       int watchers,
       int forks,
@@ -223,6 +227,7 @@ class _$RepositoryImpl implements _Repository {
       required this.name,
       required this.description,
       required this.visibility,
+      @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       required this.language,
       required this.watchers,
       required this.forks,
@@ -241,7 +246,9 @@ class _$RepositoryImpl implements _Repository {
   final String description;
   @override
   final RepositoryVisibility visibility;
+// ignore: invalid_annotation_target
   @override
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final Language? language;
   @override
   final int watchers;
@@ -302,6 +309,7 @@ abstract class _Repository implements Repository {
       required final String name,
       required final String description,
       required final RepositoryVisibility visibility,
+      @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       required final Language? language,
       required final int watchers,
       required final int forks,
@@ -320,7 +328,8 @@ abstract class _Repository implements Repository {
   String get description;
   @override
   RepositoryVisibility get visibility;
-  @override
+  @override // ignore: invalid_annotation_target
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   Language? get language;
   @override
   int get watchers;

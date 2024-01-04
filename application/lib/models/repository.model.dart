@@ -33,6 +33,10 @@ sealed class Repository with _$Repository {
     required String name,
     required String description,
     required RepositoryVisibility visibility,
+    // ignore: invalid_annotation_target
+    @JsonKey(
+      unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
+    )
     required Language? language,
     required int watchers,
     required int forks,
