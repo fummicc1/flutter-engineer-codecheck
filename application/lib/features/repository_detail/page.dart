@@ -77,7 +77,9 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
               ),
               Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Row(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         repository.name,
