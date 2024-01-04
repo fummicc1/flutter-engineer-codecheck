@@ -47,6 +47,12 @@ sealed class Repository with _$Repository {
       _$RepositoryFromJson(json);
 }
 
+extension RepositoryExtension on Repository {
+  String get url {
+    return 'https://github.com/$owner/$name';
+  }
+}
+
 @freezed
 class RepositoryOwner with _$RepositoryOwner {
   // ignore: invalid_annotation_target
