@@ -3,12 +3,13 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
-import 'package:application/models/repository.model.dart' as _i4;
-import 'package:application/services/repository.service.dart' as _i2;
+import 'package:application/models/repository.model.dart' as _i5;
+import 'package:application/models/repository_readme.model.dart' as _i2;
+import 'package:application/services/repository.service.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i5;
+import 'package:mockito/src/dummies.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -23,25 +24,36 @@ import 'package:mockito/src/dummies.dart' as _i5;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeRepositoryReadMe_0 extends _i1.SmartFake
+    implements _i2.RepositoryReadMe {
+  _FakeRepositoryReadMe_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [RepositoryService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockRepositoryService extends _i1.Mock implements _i2.RepositoryService {
+class MockRepositoryService extends _i1.Mock implements _i3.RepositoryService {
   @override
-  _i3.Future<List<_i4.Repository>> getRepositories({required String? query}) =>
+  _i4.Future<List<_i5.Repository>> getRepositories({required String? query}) =>
       (super.noSuchMethod(
         Invocation.method(
           #getRepositories,
           [],
           {#query: query},
         ),
-        returnValue: _i3.Future<List<_i4.Repository>>.value(<_i4.Repository>[]),
+        returnValue: _i4.Future<List<_i5.Repository>>.value(<_i5.Repository>[]),
         returnValueForMissingStub:
-            _i3.Future<List<_i4.Repository>>.value(<_i4.Repository>[]),
-      ) as _i3.Future<List<_i4.Repository>>);
+            _i4.Future<List<_i5.Repository>>.value(<_i5.Repository>[]),
+      ) as _i4.Future<List<_i5.Repository>>);
 
   @override
-  _i3.Future<_i4.Repository> getRepository({
+  _i4.Future<_i5.Repository> getRepository({
     required String? owner,
     required String? name,
   }) =>
@@ -55,7 +67,7 @@ class MockRepositoryService extends _i1.Mock implements _i2.RepositoryService {
           },
         ),
         returnValue:
-            _i3.Future<_i4.Repository>.value(_i5.dummyValue<_i4.Repository>(
+            _i4.Future<_i5.Repository>.value(_i6.dummyValue<_i5.Repository>(
           this,
           Invocation.method(
             #getRepository,
@@ -67,7 +79,7 @@ class MockRepositoryService extends _i1.Mock implements _i2.RepositoryService {
           ),
         )),
         returnValueForMissingStub:
-            _i3.Future<_i4.Repository>.value(_i5.dummyValue<_i4.Repository>(
+            _i4.Future<_i5.Repository>.value(_i6.dummyValue<_i5.Repository>(
           this,
           Invocation.method(
             #getRepository,
@@ -78,5 +90,45 @@ class MockRepositoryService extends _i1.Mock implements _i2.RepositoryService {
             },
           ),
         )),
-      ) as _i3.Future<_i4.Repository>);
+      ) as _i4.Future<_i5.Repository>);
+
+  @override
+  _i4.Future<_i2.RepositoryReadMe> getRepositoryReadMe({
+    required String? owner,
+    required String? name,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRepositoryReadMe,
+          [],
+          {
+            #owner: owner,
+            #name: name,
+          },
+        ),
+        returnValue:
+            _i4.Future<_i2.RepositoryReadMe>.value(_FakeRepositoryReadMe_0(
+          this,
+          Invocation.method(
+            #getRepositoryReadMe,
+            [],
+            {
+              #owner: owner,
+              #name: name,
+            },
+          ),
+        )),
+        returnValueForMissingStub:
+            _i4.Future<_i2.RepositoryReadMe>.value(_FakeRepositoryReadMe_0(
+          this,
+          Invocation.method(
+            #getRepositoryReadMe,
+            [],
+            {
+              #owner: owner,
+              #name: name,
+            },
+          ),
+        )),
+      ) as _i4.Future<_i2.RepositoryReadMe>);
 }
