@@ -25,7 +25,7 @@ mixin _$Repository {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   RepositoryVisibility get visibility => throw _privateConstructorUsedError;
-  String? get language => throw _privateConstructorUsedError;
+  Language? get language => throw _privateConstructorUsedError;
   int get watchers => throw _privateConstructorUsedError;
   int get forks => throw _privateConstructorUsedError;
   int get openIssues => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $RepositoryCopyWith<$Res> {
       String name,
       String description,
       RepositoryVisibility visibility,
-      String? language,
+      Language? language,
       int watchers,
       int forks,
       int openIssues});
@@ -103,7 +103,7 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Language?,
       watchers: null == watchers
           ? _value.watchers
           : watchers // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       String name,
       String description,
       RepositoryVisibility visibility,
-      String? language,
+      Language? language,
       int watchers,
       int forks,
       int openIssues});
@@ -196,7 +196,7 @@ class __$$RepositoryImplCopyWithImpl<$Res>
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Language?,
       watchers: null == watchers
           ? _value.watchers
           : watchers // ignore: cast_nullable_to_non_nullable
@@ -242,7 +242,7 @@ class _$RepositoryImpl implements _Repository {
   @override
   final RepositoryVisibility visibility;
   @override
-  final String? language;
+  final Language? language;
   @override
   final int watchers;
   @override
@@ -302,7 +302,7 @@ abstract class _Repository implements Repository {
       required final String name,
       required final String description,
       required final RepositoryVisibility visibility,
-      required final String? language,
+      required final Language? language,
       required final int watchers,
       required final int forks,
       required final int openIssues}) = _$RepositoryImpl;
@@ -321,7 +321,7 @@ abstract class _Repository implements Repository {
   @override
   RepositoryVisibility get visibility;
   @override
-  String? get language;
+  Language? get language;
   @override
   int get watchers;
   @override

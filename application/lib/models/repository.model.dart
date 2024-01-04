@@ -1,3 +1,4 @@
+import 'package:application/models/language.model.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -32,7 +33,7 @@ sealed class Repository with _$Repository {
     required String name,
     required String description,
     required RepositoryVisibility visibility,
-    required String? language,
+    required Language? language,
     required int watchers,
     required int forks,
     required int openIssues,
