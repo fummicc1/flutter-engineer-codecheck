@@ -1,4 +1,5 @@
 import 'package:application/features/repository_detail/state.dart';
+import 'package:application/models/repository.model.dart';
 import 'package:application/models/repository_nature_id.model.dart';
 import 'package:application/services/repository.service.dart';
 import 'package:application/ui_components/github_owner_card.dart';
@@ -82,6 +83,20 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
                       ),
                 ),
               ),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: Icon(repository.visibility.icon),
+                      ),
+                      Text(
+                        repository.visibility.name,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ],
+                  )),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(

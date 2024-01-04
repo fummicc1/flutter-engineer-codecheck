@@ -1,7 +1,26 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'repository.model.freezed.dart';
 part 'repository.model.g.dart';
+
+enum RepositoryVisibility {
+  @JsonValue('public')
+  public,
+  @JsonValue('private')
+  private,
+}
+
+extension RepositoryVisibilityExtension on RepositoryVisibility {
+  IconData get icon {
+    switch (this) {
+      case RepositoryVisibility.public:
+        return Icons.lock_open;
+      case RepositoryVisibility.private:
+        return Icons.lock;
+    }
+  }
+}
 
 @freezed
 sealed class Repository with _$Repository {
@@ -12,6 +31,7 @@ sealed class Repository with _$Repository {
     required RepositoryOwner owner,
     required String name,
     required String description,
+    required RepositoryVisibility visibility,
     required String? language,
     required int watchers,
     required int forks,
