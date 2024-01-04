@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RepositoryDetailState {
   RepositoryNatureId get repositoryId => throw _privateConstructorUsedError;
   Repository? get repository => throw _privateConstructorUsedError;
+  RepositoryReadMe? get readMe => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RepositoryDetailStateCopyWith<RepositoryDetailState> get copyWith =>
@@ -30,10 +31,14 @@ abstract class $RepositoryDetailStateCopyWith<$Res> {
           $Res Function(RepositoryDetailState) then) =
       _$RepositoryDetailStateCopyWithImpl<$Res, RepositoryDetailState>;
   @useResult
-  $Res call({RepositoryNatureId repositoryId, Repository? repository});
+  $Res call(
+      {RepositoryNatureId repositoryId,
+      Repository? repository,
+      RepositoryReadMe? readMe});
 
   $RepositoryNatureIdCopyWith<$Res> get repositoryId;
   $RepositoryCopyWith<$Res>? get repository;
+  $RepositoryReadMeCopyWith<$Res>? get readMe;
 }
 
 /// @nodoc
@@ -52,6 +57,7 @@ class _$RepositoryDetailStateCopyWithImpl<$Res,
   $Res call({
     Object? repositoryId = null,
     Object? repository = freezed,
+    Object? readMe = freezed,
   }) {
     return _then(_value.copyWith(
       repositoryId: null == repositoryId
@@ -62,6 +68,10 @@ class _$RepositoryDetailStateCopyWithImpl<$Res,
           ? _value.repository
           : repository // ignore: cast_nullable_to_non_nullable
               as Repository?,
+      readMe: freezed == readMe
+          ? _value.readMe
+          : readMe // ignore: cast_nullable_to_non_nullable
+              as RepositoryReadMe?,
     ) as $Val);
   }
 
@@ -84,6 +94,18 @@ class _$RepositoryDetailStateCopyWithImpl<$Res,
       return _then(_value.copyWith(repository: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RepositoryReadMeCopyWith<$Res>? get readMe {
+    if (_value.readMe == null) {
+      return null;
+    }
+
+    return $RepositoryReadMeCopyWith<$Res>(_value.readMe!, (value) {
+      return _then(_value.copyWith(readMe: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -95,12 +117,17 @@ abstract class _$$RepositoryDetailStateImplCopyWith<$Res>
       __$$RepositoryDetailStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RepositoryNatureId repositoryId, Repository? repository});
+  $Res call(
+      {RepositoryNatureId repositoryId,
+      Repository? repository,
+      RepositoryReadMe? readMe});
 
   @override
   $RepositoryNatureIdCopyWith<$Res> get repositoryId;
   @override
   $RepositoryCopyWith<$Res>? get repository;
+  @override
+  $RepositoryReadMeCopyWith<$Res>? get readMe;
 }
 
 /// @nodoc
@@ -117,6 +144,7 @@ class __$$RepositoryDetailStateImplCopyWithImpl<$Res>
   $Res call({
     Object? repositoryId = null,
     Object? repository = freezed,
+    Object? readMe = freezed,
   }) {
     return _then(_$RepositoryDetailStateImpl(
       repositoryId: null == repositoryId
@@ -127,6 +155,10 @@ class __$$RepositoryDetailStateImplCopyWithImpl<$Res>
           ? _value.repository
           : repository // ignore: cast_nullable_to_non_nullable
               as Repository?,
+      readMe: freezed == readMe
+          ? _value.readMe
+          : readMe // ignore: cast_nullable_to_non_nullable
+              as RepositoryReadMe?,
     ));
   }
 }
@@ -135,16 +167,18 @@ class __$$RepositoryDetailStateImplCopyWithImpl<$Res>
 
 class _$RepositoryDetailStateImpl implements _RepositoryDetailState {
   const _$RepositoryDetailStateImpl(
-      {required this.repositoryId, this.repository});
+      {required this.repositoryId, this.repository, this.readMe});
 
   @override
   final RepositoryNatureId repositoryId;
   @override
   final Repository? repository;
+  @override
+  final RepositoryReadMe? readMe;
 
   @override
   String toString() {
-    return 'RepositoryDetailState(repositoryId: $repositoryId, repository: $repository)';
+    return 'RepositoryDetailState(repositoryId: $repositoryId, repository: $repository, readMe: $readMe)';
   }
 
   @override
@@ -155,11 +189,13 @@ class _$RepositoryDetailStateImpl implements _RepositoryDetailState {
             (identical(other.repositoryId, repositoryId) ||
                 other.repositoryId == repositoryId) &&
             (identical(other.repository, repository) ||
-                other.repository == repository));
+                other.repository == repository) &&
+            (identical(other.readMe, readMe) || other.readMe == readMe));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, repositoryId, repository);
+  int get hashCode =>
+      Object.hash(runtimeType, repositoryId, repository, readMe);
 
   @JsonKey(ignore: true)
   @override
@@ -172,12 +208,15 @@ class _$RepositoryDetailStateImpl implements _RepositoryDetailState {
 abstract class _RepositoryDetailState implements RepositoryDetailState {
   const factory _RepositoryDetailState(
       {required final RepositoryNatureId repositoryId,
-      final Repository? repository}) = _$RepositoryDetailStateImpl;
+      final Repository? repository,
+      final RepositoryReadMe? readMe}) = _$RepositoryDetailStateImpl;
 
   @override
   RepositoryNatureId get repositoryId;
   @override
   Repository? get repository;
+  @override
+  RepositoryReadMe? get readMe;
   @override
   @JsonKey(ignore: true)
   _$$RepositoryDetailStateImplCopyWith<_$RepositoryDetailStateImpl>
