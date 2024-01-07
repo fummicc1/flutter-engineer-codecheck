@@ -122,7 +122,7 @@ void main() {
           );
           await tester.pumpWidget(app);
           await tester.pumpAndSettle();
-          // MArkdownBodyが表示されていること
+          // MarkdownBodyが表示されていること
           expect(find.byType(MarkdownBody), findsOneWidget);
           final markdownBody = tester.widget(
             find.byType(MarkdownBody),
