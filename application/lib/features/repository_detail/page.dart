@@ -12,7 +12,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:markdown/markdown.dart' hide Text;
-import 'package:url_launcher/url_launcher.dart';
 
 class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
   RepositoryDetailPage({
