@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:application/models/repository_readme.model.dart';
 import 'package:application/network/api_client.dart';
 import 'package:application/services/repository.service.dart';
 import 'package:http/http.dart';
@@ -82,6 +83,52 @@ void main() {
         );
         expect(
           () async => await repositoryService.getRepository(
+            owner: owner,
+            name: name,
+          ),
+          throwsException,
+        );
+      });
+    });
+
+    group("getRepositoryReadMe", () {
+      test("リポジトリのREADMEの取得が行える", () async {
+        const readMeContent =
+            "# Headline1\n\n## Headline2\n\n### Headline3\n\n";
+        const owner = "owner";
+        const name = "name";
+        when(apiClient.send(any)).thenAnswer(
+          (_) async => Response(
+            readMeContent,
+            200,
+          ),
+        );
+        final response = await repositoryService.getRepositoryReadMe(
+          owner: owner,
+          name: name,
+        );
+        verify(apiClient.send(any)).called(1);
+        expect(
+          response,
+          RepositoryReadMe(
+            owner: owner,
+            name: name,
+            content: readMeContent,
+          ),
+        );
+      });
+
+      test("API通信に失敗した場合、例外が発生する", () async {
+        const owner = "owner";
+        const name = "name";
+        when(apiClient.send(any)).thenAnswer(
+          (_) async => Response(
+            jsonEncode({}),
+            400,
+          ),
+        );
+        expect(
+          () async => await repositoryService.getRepositoryReadMe(
             owner: owner,
             name: name,
           ),
