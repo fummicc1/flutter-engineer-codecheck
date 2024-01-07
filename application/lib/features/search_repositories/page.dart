@@ -25,12 +25,16 @@ class SearchRepositoriesPage extends FeaturePage<SearchRepositoriesState> {
       () {
         Future(() async {
           pageState.value = PageState.loading(state);
-          final repositories = await ref
-              .read(repositoryServiceProvider)
-              .getRepositories(query: state.query);
-          pageState.value = PageState.loaded(state.copyWith(
-            repositories: repositories,
-          ));
+          try {
+            final repositories = await ref
+                .read(repositoryServiceProvider)
+                .getRepositories(query: state.query);
+            pageState.value = PageState.loaded(state.copyWith(
+              repositories: repositories,
+            ));
+          } on Exception catch (err) {
+            pageState.value = PageState.loadFailed(state, err);
+          }
         });
         return null;
       },

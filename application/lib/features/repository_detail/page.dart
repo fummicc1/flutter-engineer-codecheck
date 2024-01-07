@@ -31,15 +31,19 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
       RepositoryDetailState state) {
     useEffect(() {
       Future(() async {
-        final repo = await ref.watch(repositoryServiceProvider).getRepository(
-              owner: state.repositoryId.owner,
-              name: state.repositoryId.repo,
-            );
-        pageState.value = PageState.loaded(
-          state.copyWith(
-            repository: repo,
-          ),
-        );
+        try {
+          final repo = await ref.watch(repositoryServiceProvider).getRepository(
+                owner: state.repositoryId.owner,
+                name: state.repositoryId.repo,
+              );
+          pageState.value = PageState.loaded(
+            state.copyWith(
+              repository: repo,
+            ),
+          );
+        } on Exception catch (err) {
+          pageState.value = PageState.loadFailed(state, err);
+        }
       });
       return null;
     }, const []);
@@ -69,16 +73,20 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
           if (state.readMe != null) {
             return;
           }
-          final readme =
-              await ref.watch(repositoryServiceProvider).getRepositoryReadMe(
-                    owner: state.repositoryId.owner,
-                    name: state.repositoryId.repo,
-                  );
-          pageState.value = PageState.loaded(
-            state.copyWith(
-              readMe: readme,
-            ),
-          );
+          try {
+            final readme =
+                await ref.watch(repositoryServiceProvider).getRepositoryReadMe(
+                      owner: state.repositoryId.owner,
+                      name: state.repositoryId.repo,
+                    );
+            pageState.value = PageState.loaded(
+              state.copyWith(
+                readMe: readme,
+              ),
+            );
+          } on Exception catch (err) {
+            pageState.value = PageState.loadFailed(state, err);
+          }
         });
         return null;
       },
