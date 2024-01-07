@@ -40,16 +40,25 @@ class RepositorySearchBar extends HookConsumerWidget {
               ),
             ),
           );
-          final repositories = await ref
-              .read(repositoryServiceProvider)
-              .getRepositories(query: value);
-          updatePageState(
-            PageState.loaded(
-              state.copyWith(
-                repositories: repositories,
+          try {
+            final repositories = await ref
+                .read(repositoryServiceProvider)
+                .getRepositories(query: value);
+            updatePageState(
+              PageState.loaded(
+                state.copyWith(
+                  repositories: repositories,
+                ),
               ),
-            ),
-          );
+            );
+          } on Exception catch (err) {
+            updatePageState(
+              PageState.loadFailed(
+                state,
+                err,
+              ),
+            );
+          }
         },
         onSubmitted: (value) async {
           if (isLoading) {
@@ -62,16 +71,25 @@ class RepositorySearchBar extends HookConsumerWidget {
               ),
             ),
           );
-          final repositories = await ref
-              .read(repositoryServiceProvider)
-              .getRepositories(query: value);
-          updatePageState(
-            PageState.loaded(
-              state.copyWith(
-                repositories: repositories,
+          try {
+            final repositories = await ref
+                .read(repositoryServiceProvider)
+                .getRepositories(query: value);
+            updatePageState(
+              PageState.loaded(
+                state.copyWith(
+                  repositories: repositories,
+                ),
               ),
-            ),
-          );
+            );
+          } on Exception catch (err) {
+            updatePageState(
+              PageState.loadFailed(
+                state,
+                err,
+              ),
+            );
+          }
         },
       ),
     );

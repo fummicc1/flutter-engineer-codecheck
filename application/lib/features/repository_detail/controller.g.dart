@@ -7,7 +7,7 @@ part of 'controller.dart';
 // **************************************************************************
 
 String _$repositoryDetailControllerHash() =>
-    r'782c2a56f6d05079ad0e95dff49b15595ed3a7a0';
+    r'78c3167267d485803e443fec8913ed78a9182de5';
 
 /// See also [repositoryDetailController].
 @ProviderFor(repositoryDetailController)
