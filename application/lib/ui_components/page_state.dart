@@ -31,7 +31,7 @@ extension PageStateExt<S> on PageState<S> {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: const Text("エラー"),
+                title: const Text("Something went wrong"),
                 content: Text(exception.toString()),
                 actions: [
                   TextButton(
@@ -39,7 +39,7 @@ extension PageStateExt<S> on PageState<S> {
                       Navigator.of(context).pop();
                       await onDismiss?.call();
                     },
-                    child: const Text("閉じる"),
+                    child: const Text("Close"),
                   ),
                 ],
               );
