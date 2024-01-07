@@ -1,3 +1,4 @@
+import 'package:application/features/repository_detail/controller.dart';
 import 'package:application/features/repository_detail/state.dart';
 import 'package:application/models/repository.model.dart';
 import 'package:application/models/repository_nature_id.model.dart';
@@ -206,11 +207,13 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
                     child: MarkdownBody(
                       data: state.readMe!.content,
                       extensionSet: ExtensionSet.gitHubFlavored,
-                      onTapLink: (text, href, title) {
-                        if (href == null) {
-                          return;
-                        }
-                        launchUrl(Uri.parse(href));
+                      onTapLink: (text, href, title) async {
+                        await ref
+                            .read(repositoryDetailControllerProvider)
+                            .onPressedReadMeLink(
+                              text: text,
+                              href: href,
+                            );
                       },
                       imageBuilder: (uri, title, alt) {
                         return Image.network(
