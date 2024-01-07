@@ -17,6 +17,7 @@ class FeaturePage<S extends FeatureState> extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final pageState = useState(PageState<S>.initial(initialPageState));
     return pageState.value.typedWhen(
+      context: context,
       initial: (s) => initial(ref, pageState, s),
       loading: (s) => loading(ref, pageState, s),
       loaded: (s) => loaded(ref, pageState, s),

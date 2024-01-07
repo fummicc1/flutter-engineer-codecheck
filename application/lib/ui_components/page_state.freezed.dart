@@ -21,6 +21,9 @@ mixin _$PageState<S> {
     required TResult Function(S initialS) initial,
     required TResult Function(S cache) loading,
     required TResult Function(S s) loaded,
+    required TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)
+        loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +31,9 @@ mixin _$PageState<S> {
     TResult? Function(S initialS)? initial,
     TResult? Function(S cache)? loading,
     TResult? Function(S s)? loaded,
+    TResult? Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +41,9 @@ mixin _$PageState<S> {
     TResult Function(S initialS)? initial,
     TResult Function(S cache)? loading,
     TResult Function(S s)? loaded,
+    TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +52,7 @@ mixin _$PageState<S> {
     required TResult Function(_Initial<S> value) initial,
     required TResult Function(_Loading<S> value) loading,
     required TResult Function(_Loaded<S> value) loaded,
+    required TResult Function(_LoadFailed<S> value) loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +60,7 @@ mixin _$PageState<S> {
     TResult? Function(_Initial<S> value)? initial,
     TResult? Function(_Loading<S> value)? loading,
     TResult? Function(_Loaded<S> value)? loaded,
+    TResult? Function(_LoadFailed<S> value)? loadFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +68,7 @@ mixin _$PageState<S> {
     TResult Function(_Initial<S> value)? initial,
     TResult Function(_Loading<S> value)? loading,
     TResult Function(_Loaded<S> value)? loaded,
+    TResult Function(_LoadFailed<S> value)? loadFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +160,9 @@ class _$InitialImpl<S> extends _Initial<S> {
     required TResult Function(S initialS) initial,
     required TResult Function(S cache) loading,
     required TResult Function(S s) loaded,
+    required TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)
+        loadFailed,
   }) {
     return initial(initialS);
   }
@@ -158,6 +173,9 @@ class _$InitialImpl<S> extends _Initial<S> {
     TResult? Function(S initialS)? initial,
     TResult? Function(S cache)? loading,
     TResult? Function(S s)? loaded,
+    TResult? Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
   }) {
     return initial?.call(initialS);
   }
@@ -168,6 +186,9 @@ class _$InitialImpl<S> extends _Initial<S> {
     TResult Function(S initialS)? initial,
     TResult Function(S cache)? loading,
     TResult Function(S s)? loaded,
+    TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -182,6 +203,7 @@ class _$InitialImpl<S> extends _Initial<S> {
     required TResult Function(_Initial<S> value) initial,
     required TResult Function(_Loading<S> value) loading,
     required TResult Function(_Loaded<S> value) loaded,
+    required TResult Function(_LoadFailed<S> value) loadFailed,
   }) {
     return initial(this);
   }
@@ -192,6 +214,7 @@ class _$InitialImpl<S> extends _Initial<S> {
     TResult? Function(_Initial<S> value)? initial,
     TResult? Function(_Loading<S> value)? loading,
     TResult? Function(_Loaded<S> value)? loaded,
+    TResult? Function(_LoadFailed<S> value)? loadFailed,
   }) {
     return initial?.call(this);
   }
@@ -202,6 +225,7 @@ class _$InitialImpl<S> extends _Initial<S> {
     TResult Function(_Initial<S> value)? initial,
     TResult Function(_Loading<S> value)? loading,
     TResult Function(_Loaded<S> value)? loaded,
+    TResult Function(_LoadFailed<S> value)? loadFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -289,6 +313,9 @@ class _$LoadingImpl<S> extends _Loading<S> {
     required TResult Function(S initialS) initial,
     required TResult Function(S cache) loading,
     required TResult Function(S s) loaded,
+    required TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)
+        loadFailed,
   }) {
     return loading(cache);
   }
@@ -299,6 +326,9 @@ class _$LoadingImpl<S> extends _Loading<S> {
     TResult? Function(S initialS)? initial,
     TResult? Function(S cache)? loading,
     TResult? Function(S s)? loaded,
+    TResult? Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
   }) {
     return loading?.call(cache);
   }
@@ -309,6 +339,9 @@ class _$LoadingImpl<S> extends _Loading<S> {
     TResult Function(S initialS)? initial,
     TResult Function(S cache)? loading,
     TResult Function(S s)? loaded,
+    TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -323,6 +356,7 @@ class _$LoadingImpl<S> extends _Loading<S> {
     required TResult Function(_Initial<S> value) initial,
     required TResult Function(_Loading<S> value) loading,
     required TResult Function(_Loaded<S> value) loaded,
+    required TResult Function(_LoadFailed<S> value) loadFailed,
   }) {
     return loading(this);
   }
@@ -333,6 +367,7 @@ class _$LoadingImpl<S> extends _Loading<S> {
     TResult? Function(_Initial<S> value)? initial,
     TResult? Function(_Loading<S> value)? loading,
     TResult? Function(_Loaded<S> value)? loaded,
+    TResult? Function(_LoadFailed<S> value)? loadFailed,
   }) {
     return loading?.call(this);
   }
@@ -343,6 +378,7 @@ class _$LoadingImpl<S> extends _Loading<S> {
     TResult Function(_Initial<S> value)? initial,
     TResult Function(_Loading<S> value)? loading,
     TResult Function(_Loaded<S> value)? loaded,
+    TResult Function(_LoadFailed<S> value)? loadFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -430,6 +466,9 @@ class _$LoadedImpl<S> extends _Loaded<S> {
     required TResult Function(S initialS) initial,
     required TResult Function(S cache) loading,
     required TResult Function(S s) loaded,
+    required TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)
+        loadFailed,
   }) {
     return loaded(s);
   }
@@ -440,6 +479,9 @@ class _$LoadedImpl<S> extends _Loaded<S> {
     TResult? Function(S initialS)? initial,
     TResult? Function(S cache)? loading,
     TResult? Function(S s)? loaded,
+    TResult? Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
   }) {
     return loaded?.call(s);
   }
@@ -450,6 +492,9 @@ class _$LoadedImpl<S> extends _Loaded<S> {
     TResult Function(S initialS)? initial,
     TResult Function(S cache)? loading,
     TResult Function(S s)? loaded,
+    TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -464,6 +509,7 @@ class _$LoadedImpl<S> extends _Loaded<S> {
     required TResult Function(_Initial<S> value) initial,
     required TResult Function(_Loading<S> value) loading,
     required TResult Function(_Loaded<S> value) loaded,
+    required TResult Function(_LoadFailed<S> value) loadFailed,
   }) {
     return loaded(this);
   }
@@ -474,6 +520,7 @@ class _$LoadedImpl<S> extends _Loaded<S> {
     TResult? Function(_Initial<S> value)? initial,
     TResult? Function(_Loading<S> value)? loading,
     TResult? Function(_Loaded<S> value)? loaded,
+    TResult? Function(_LoadFailed<S> value)? loadFailed,
   }) {
     return loaded?.call(this);
   }
@@ -484,6 +531,7 @@ class _$LoadedImpl<S> extends _Loaded<S> {
     TResult Function(_Initial<S> value)? initial,
     TResult Function(_Loading<S> value)? loading,
     TResult Function(_Loaded<S> value)? loaded,
+    TResult Function(_LoadFailed<S> value)? loadFailed,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -500,5 +548,179 @@ abstract class _Loaded<S> extends PageState<S> {
   S get s;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<S, _$LoadedImpl<S>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadFailedImplCopyWith<S, $Res> {
+  factory _$$LoadFailedImplCopyWith(
+          _$LoadFailedImpl<S> value, $Res Function(_$LoadFailedImpl<S>) then) =
+      __$$LoadFailedImplCopyWithImpl<S, $Res>;
+  @useResult
+  $Res call({S s, Exception exception, Future<void> Function()? onDismiss});
+}
+
+/// @nodoc
+class __$$LoadFailedImplCopyWithImpl<S, $Res>
+    extends _$PageStateCopyWithImpl<S, $Res, _$LoadFailedImpl<S>>
+    implements _$$LoadFailedImplCopyWith<S, $Res> {
+  __$$LoadFailedImplCopyWithImpl(
+      _$LoadFailedImpl<S> _value, $Res Function(_$LoadFailedImpl<S>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? s = freezed,
+    Object? exception = null,
+    Object? onDismiss = freezed,
+  }) {
+    return _then(_$LoadFailedImpl<S>(
+      freezed == s
+          ? _value.s
+          : s // ignore: cast_nullable_to_non_nullable
+              as S,
+      null == exception
+          ? _value.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as Exception,
+      onDismiss: freezed == onDismiss
+          ? _value.onDismiss
+          : onDismiss // ignore: cast_nullable_to_non_nullable
+              as Future<void> Function()?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadFailedImpl<S> extends _LoadFailed<S> {
+  const _$LoadFailedImpl(this.s, this.exception, {this.onDismiss}) : super._();
+
+  @override
+  final S s;
+  @override
+  final Exception exception;
+  @override
+  final Future<void> Function()? onDismiss;
+
+  @override
+  String toString() {
+    return 'PageState<$S>.loadFailed(s: $s, exception: $exception, onDismiss: $onDismiss)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadFailedImpl<S> &&
+            const DeepCollectionEquality().equals(other.s, s) &&
+            (identical(other.exception, exception) ||
+                other.exception == exception) &&
+            (identical(other.onDismiss, onDismiss) ||
+                other.onDismiss == onDismiss));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(s), exception, onDismiss);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadFailedImplCopyWith<S, _$LoadFailedImpl<S>> get copyWith =>
+      __$$LoadFailedImplCopyWithImpl<S, _$LoadFailedImpl<S>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(S initialS) initial,
+    required TResult Function(S cache) loading,
+    required TResult Function(S s) loaded,
+    required TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)
+        loadFailed,
+  }) {
+    return loadFailed(s, exception, onDismiss);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(S initialS)? initial,
+    TResult? Function(S cache)? loading,
+    TResult? Function(S s)? loaded,
+    TResult? Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
+  }) {
+    return loadFailed?.call(s, exception, onDismiss);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(S initialS)? initial,
+    TResult Function(S cache)? loading,
+    TResult Function(S s)? loaded,
+    TResult Function(
+            S s, Exception exception, Future<void> Function()? onDismiss)?
+        loadFailed,
+    required TResult orElse(),
+  }) {
+    if (loadFailed != null) {
+      return loadFailed(s, exception, onDismiss);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<S> value) initial,
+    required TResult Function(_Loading<S> value) loading,
+    required TResult Function(_Loaded<S> value) loaded,
+    required TResult Function(_LoadFailed<S> value) loadFailed,
+  }) {
+    return loadFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<S> value)? initial,
+    TResult? Function(_Loading<S> value)? loading,
+    TResult? Function(_Loaded<S> value)? loaded,
+    TResult? Function(_LoadFailed<S> value)? loadFailed,
+  }) {
+    return loadFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<S> value)? initial,
+    TResult Function(_Loading<S> value)? loading,
+    TResult Function(_Loaded<S> value)? loaded,
+    TResult Function(_LoadFailed<S> value)? loadFailed,
+    required TResult orElse(),
+  }) {
+    if (loadFailed != null) {
+      return loadFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadFailed<S> extends PageState<S> {
+  const factory _LoadFailed(final S s, final Exception exception,
+      {final Future<void> Function()? onDismiss}) = _$LoadFailedImpl<S>;
+  const _LoadFailed._() : super._();
+
+  S get s;
+  Exception get exception;
+  Future<void> Function()? get onDismiss;
+  @JsonKey(ignore: true)
+  _$$LoadFailedImplCopyWith<S, _$LoadFailedImpl<S>> get copyWith =>
       throw _privateConstructorUsedError;
 }
