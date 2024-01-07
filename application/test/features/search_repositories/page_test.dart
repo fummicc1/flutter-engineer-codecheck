@@ -79,6 +79,9 @@ void main() {
         );
         await tester.pumpWidget(app);
         await tester.pumpAndSettle();
+        verifyNever(repositoryService.getRepositories(
+          query: anyNamed("query"),
+        )).called(1);
         final textField = tester.widget(find.descendant(
             of: find.byType(RepositorySearchBar),
             matching: find.byType(TextField))) as TextField;
@@ -87,8 +90,9 @@ void main() {
         await tester.pumpAndSettle();
         // 検索結果が反映されている
         expect(find.byType(ListView), findsOneWidget);
-        verify(repositoryService.getRepositories(query: anyNamed("query")))
-            .called(2);
+        verify(repositoryService.getRepositories(
+          query: anyNamed("query"),
+        )).called(2);
       });
     });
   });
