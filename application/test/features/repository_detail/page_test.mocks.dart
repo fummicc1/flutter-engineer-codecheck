@@ -132,6 +132,26 @@ class MockRepositoryService extends _i1.Mock implements _i3.RepositoryService {
           ),
         )),
       ) as _i4.Future<_i2.RepositoryReadMe>);
+
+  @override
+  _i4.Future<List<_i5.RepositoryOwner>> getRepositoryStargazers({
+    required String? owner,
+    required String? name,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRepositoryStargazers,
+          [],
+          {
+            #owner: owner,
+            #name: name,
+          },
+        ),
+        returnValue: _i4.Future<List<_i5.RepositoryOwner>>.value(
+            <_i5.RepositoryOwner>[]),
+        returnValueForMissingStub: _i4.Future<List<_i5.RepositoryOwner>>.value(
+            <_i5.RepositoryOwner>[]),
+      ) as _i4.Future<List<_i5.RepositoryOwner>>);
 }
 
 /// A class which mocks [RepositoryDetailController].

@@ -6,6 +6,7 @@ import 'package:application/network/api_client.dart';
 import 'package:application/network/github_repository_find.request.dart';
 import 'package:application/network/github_repository_readme.request.dart';
 import 'package:application/network/github_repository_search.request.dart';
+import 'package:application/network/github_repository_stargazers.request.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -88,6 +89,32 @@ class RepositoryService {
         return repositoryReadMe;
       } else {
         throw Exception('Failed to load repository readme');
+      }
+    } catch (err) {
+      if (kDebugMode) {
+        print(err);
+      }
+      rethrow;
+    }
+  }
+
+  Future<List<RepositoryOwner>> getRepositoryStargazers({
+    required String owner,
+    required String name,
+  }) async {
+    try {
+      final request =
+          GetGitHubRepositoryStargazersRequest(owner: owner, name: name);
+      final response = await _apiClient.send(request);
+      if (response.statusCode == 200) {
+        final List<dynamic> stargazersJson = json.decode(response.body);
+        final stargazers = stargazersJson
+            .map((e) => RepositoryOwner.fromJson(e))
+            .cast<RepositoryOwner>()
+            .toList();
+        return stargazers;
+      } else {
+        throw Exception('Failed to load repository');
       }
     } catch (err) {
       if (kDebugMode) {
