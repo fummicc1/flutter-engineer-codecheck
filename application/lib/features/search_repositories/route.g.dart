@@ -17,6 +17,12 @@ RouteBase get $searchRepositoriesRoute => GoRouteData.$route(
         GoRouteData.$route(
           path: 'repository/:owner/:repo',
           factory: $RepositoryDetailRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'stargazers',
+              factory: $RepositoryStargazersRouteExtension._fromState,
+            ),
+          ],
         ),
       ],
     );
@@ -48,6 +54,27 @@ extension $RepositoryDetailRouteExtension on RepositoryDetailRoute {
 
   String get location => GoRouteData.$location(
         '/search/repository/${Uri.encodeComponent(owner)}/${Uri.encodeComponent(repo)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $RepositoryStargazersRouteExtension on RepositoryStargazersRoute {
+  static RepositoryStargazersRoute _fromState(GoRouterState state) =>
+      RepositoryStargazersRoute(
+        owner: state.pathParameters['owner']!,
+        repo: state.pathParameters['repo']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/search/repository/${Uri.encodeComponent(owner)}/${Uri.encodeComponent(repo)}/stargazers',
       );
 
   void go(BuildContext context) => context.go(location);
