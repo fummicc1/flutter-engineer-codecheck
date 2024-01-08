@@ -18,7 +18,7 @@ class GetGitHubRepositoryReadMeRequest with NetworkRequest {
   @override
   Map<String, String> get headers => {
         ...super.defaultHeaders,
-        'Accept': 'application/vnd.github.raw+json',
+        'Accept': 'application/json',
       };
 
   @override

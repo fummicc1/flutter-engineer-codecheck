@@ -14,3 +14,7 @@ class RepositoryReadMe with _$RepositoryReadMe {
   factory RepositoryReadMe.fromJson(Map<String, dynamic> json) =>
       _$RepositoryReadMeFromJson(json);
 }
+
+extension RepositoryReadMeX on RepositoryReadMe {
+  String get contentUrl => "https://github.com/$owner/$name?tab=readme-ov-file";
+}

@@ -79,6 +79,11 @@ void main() {
         const name = "name";
         const expectedUrl = "https://example.com";
         final expectedRepository = RepositoryTestHelper().make(1)[0];
+        final readMe = RepositoryReadMe(
+          owner: owner,
+          name: name,
+          content: "# ReadMe\n\nYou can tap [here]($expectedUrl).",
+        );
         provideDummy<Repository>(expectedRepository);
         when(mockRepositoryService.getRepository(
           owner: anyNamed("owner"),
@@ -92,11 +97,7 @@ void main() {
             name: anyNamed("name"),
           ),
         ).thenAnswer((_) async {
-          return RepositoryReadMe(
-            owner: owner,
-            name: name,
-            content: "# ReadMe\n\nYou can tap [here]($expectedUrl).",
-          );
+          return readMe;
         });
         when(mockRepositoryDetailController.onPressedReadMeLink(
           text: anyNamed("text"),
@@ -108,7 +109,7 @@ void main() {
             overrides: [
               repositoryServiceProvider
                   .overrideWith((ref) => mockRepositoryService),
-              repositoryDetailControllerProvider
+              repositoryDetailControllerProvider(readMe)
                   .overrideWith((ref) => mockRepositoryDetailController),
             ],
             child: MaterialApp(

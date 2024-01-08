@@ -216,7 +216,8 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
                       extensionSet: ExtensionSet.gitHubFlavored,
                       onTapLink: (text, href, title) async {
                         await ref
-                            .read(repositoryDetailControllerProvider)
+                            .read(repositoryDetailControllerProvider(
+                                state.readMe!))
                             .onPressedReadMeLink(
                               text: text,
                               href: href,
