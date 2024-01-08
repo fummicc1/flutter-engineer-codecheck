@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,6 +15,21 @@ class RepositoryDetailController {
     if (href == null) {
       return;
     }
-    await launchUrl(Uri.parse(href));
+    final url = Uri.parse(href);
+    const supportedSchemes = [
+      'https',
+      "tel",
+      "sms",
+    ];
+    if (kDebugMode) {
+      print('onPressedReadMeLink: $url');
+    }
+    if (!supportedSchemes.contains(url.scheme)) {
+      return;
+    }
+    if (await canLaunchUrl(url)) {
+      return;
+    }
+    await launchUrl(url);
   }
 }
