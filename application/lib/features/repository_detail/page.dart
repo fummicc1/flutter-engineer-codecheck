@@ -1,5 +1,7 @@
 import 'package:application/features/repository_detail/controller.dart';
 import 'package:application/features/repository_detail/state.dart';
+import 'package:application/features/repository_stargazers/route.dart';
+import 'package:application/features/search_repositories/route.dart';
 import 'package:application/models/repository.model.dart';
 import 'package:application/models/repository_nature_id.model.dart';
 import 'package:application/services/repository.service.dart';
@@ -167,6 +169,7 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
               Row(
                 children: [
                   Expanded(
+                      child: InkWell(
                     child: Column(
                       children: [
                         Text(
@@ -174,12 +177,18 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
                           style: Theme.of(context).textTheme.titleLarge,
                         ),
                         Text(
-                          "Watchers",
+                          "Stargazers",
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ],
                     ),
-                  ),
+                    onTap: () {
+                      RepositoryStargazersRoute(
+                        owner: repository.owner.login,
+                        repo: repository.name,
+                      ).go(context);
+                    },
+                  )),
                   Expanded(
                     child: Column(
                       children: [
