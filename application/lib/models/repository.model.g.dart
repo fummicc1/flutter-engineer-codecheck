@@ -9,7 +9,7 @@ part of 'repository.model.dart';
 _$RepositoryImpl _$$RepositoryImplFromJson(Map<String, dynamic> json) =>
     _$RepositoryImpl(
       id: json['id'] as int,
-      owner: RepositoryOwner.fromJson(json['owner'] as Map<String, dynamic>),
+      owner: GitHubUser.fromJson(json['owner'] as Map<String, dynamic>),
       name: json['name'] as String,
       description: json['description'] as String,
       visibility:
@@ -58,15 +58,13 @@ const _$LanguageEnumMap = {
   Language.css: 'CSS',
 };
 
-_$RepositoryOwnerImpl _$$RepositoryOwnerImplFromJson(
-        Map<String, dynamic> json) =>
-    _$RepositoryOwnerImpl(
+_$GitHubUserImpl _$$GitHubUserImplFromJson(Map<String, dynamic> json) =>
+    _$GitHubUserImpl(
       login: json['login'] as String,
       avatarUrl: json['avatar_url'] as String,
     );
 
-Map<String, dynamic> _$$RepositoryOwnerImplToJson(
-        _$RepositoryOwnerImpl instance) =>
+Map<String, dynamic> _$$GitHubUserImplToJson(_$GitHubUserImpl instance) =>
     <String, dynamic>{
       'login': instance.login,
       'avatar_url': instance.avatarUrl,

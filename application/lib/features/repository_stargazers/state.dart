@@ -11,6 +11,6 @@ class RepositoryStargazersState
     implements FeatureState {
   factory RepositoryStargazersState({
     required RepositoryNatureId repositoryId,
-    @Default([]) List<RepositoryOwner> stargazers,
+    @Default([]) List<GitHubUser> stargazers,
   }) = _RepositoryStargazersState;
 }
