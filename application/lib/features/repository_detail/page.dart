@@ -94,6 +94,18 @@ class RepositoryDetailPage extends FeaturePage<RepositoryDetailState> {
     return Scaffold(
       appBar: AppBar(
         title: Text('${state.repositoryId.owner}/${state.repositoryId.repo}'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              ref
+                  .read(repositoryDetailControllerProvider(state.readMe!))
+                  .launchRepositoryUrl();
+            },
+            icon: const Icon(
+              Icons.open_in_new,
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(

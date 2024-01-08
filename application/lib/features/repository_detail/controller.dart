@@ -43,4 +43,9 @@ class RepositoryDetailController {
     }
     await launchUrl(url);
   }
+
+  Future<void> launchRepositoryUrl() async {
+    final url = Uri.parse(readMe.repoUrl);
+    await launchUrl(url);
+  }
 }
