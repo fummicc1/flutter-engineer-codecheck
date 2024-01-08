@@ -98,7 +98,7 @@ class RepositoryService {
     }
   }
 
-  Future<List<RepositoryOwner>> getRepositoryStargazers({
+  Future<List<GitHubUser>> getRepositoryStargazers({
     required String owner,
     required String name,
   }) async {
@@ -109,8 +109,8 @@ class RepositoryService {
       if (response.statusCode == 200) {
         final List<dynamic> stargazersJson = json.decode(response.body);
         final stargazers = stargazersJson
-            .map((e) => RepositoryOwner.fromJson(e))
-            .cast<RepositoryOwner>()
+            .map((e) => GitHubUser.fromJson(e))
+            .cast<GitHubUser>()
             .toList();
         return stargazers;
       } else {

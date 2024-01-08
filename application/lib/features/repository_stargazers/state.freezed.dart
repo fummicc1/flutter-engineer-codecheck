@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$RepositoryStargazersState {
   RepositoryNatureId get repositoryId => throw _privateConstructorUsedError;
-  List<RepositoryOwner> get stargazers => throw _privateConstructorUsedError;
+  List<GitHubUser> get stargazers => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RepositoryStargazersStateCopyWith<RepositoryStargazersState> get copyWith =>
@@ -30,8 +30,7 @@ abstract class $RepositoryStargazersStateCopyWith<$Res> {
           $Res Function(RepositoryStargazersState) then) =
       _$RepositoryStargazersStateCopyWithImpl<$Res, RepositoryStargazersState>;
   @useResult
-  $Res call(
-      {RepositoryNatureId repositoryId, List<RepositoryOwner> stargazers});
+  $Res call({RepositoryNatureId repositoryId, List<GitHubUser> stargazers});
 
   $RepositoryNatureIdCopyWith<$Res> get repositoryId;
 }
@@ -61,7 +60,7 @@ class _$RepositoryStargazersStateCopyWithImpl<$Res,
       stargazers: null == stargazers
           ? _value.stargazers
           : stargazers // ignore: cast_nullable_to_non_nullable
-              as List<RepositoryOwner>,
+              as List<GitHubUser>,
     ) as $Val);
   }
 
@@ -83,8 +82,7 @@ abstract class _$$RepositoryStargazersStateImplCopyWith<$Res>
       __$$RepositoryStargazersStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {RepositoryNatureId repositoryId, List<RepositoryOwner> stargazers});
+  $Res call({RepositoryNatureId repositoryId, List<GitHubUser> stargazers});
 
   @override
   $RepositoryNatureIdCopyWith<$Res> get repositoryId;
@@ -114,7 +112,7 @@ class __$$RepositoryStargazersStateImplCopyWithImpl<$Res>
       stargazers: null == stargazers
           ? _value._stargazers
           : stargazers // ignore: cast_nullable_to_non_nullable
-              as List<RepositoryOwner>,
+              as List<GitHubUser>,
     ));
   }
 }
@@ -124,15 +122,15 @@ class __$$RepositoryStargazersStateImplCopyWithImpl<$Res>
 class _$RepositoryStargazersStateImpl implements _RepositoryStargazersState {
   _$RepositoryStargazersStateImpl(
       {required this.repositoryId,
-      final List<RepositoryOwner> stargazers = const []})
+      final List<GitHubUser> stargazers = const []})
       : _stargazers = stargazers;
 
   @override
   final RepositoryNatureId repositoryId;
-  final List<RepositoryOwner> _stargazers;
+  final List<GitHubUser> _stargazers;
   @override
   @JsonKey()
-  List<RepositoryOwner> get stargazers {
+  List<GitHubUser> get stargazers {
     if (_stargazers is EqualUnmodifiableListView) return _stargazers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_stargazers);
@@ -168,14 +166,13 @@ class _$RepositoryStargazersStateImpl implements _RepositoryStargazersState {
 
 abstract class _RepositoryStargazersState implements RepositoryStargazersState {
   factory _RepositoryStargazersState(
-          {required final RepositoryNatureId repositoryId,
-          final List<RepositoryOwner> stargazers}) =
-      _$RepositoryStargazersStateImpl;
+      {required final RepositoryNatureId repositoryId,
+      final List<GitHubUser> stargazers}) = _$RepositoryStargazersStateImpl;
 
   @override
   RepositoryNatureId get repositoryId;
   @override
-  List<RepositoryOwner> get stargazers;
+  List<GitHubUser> get stargazers;
   @override
   @JsonKey(ignore: true)
   _$$RepositoryStargazersStateImplCopyWith<_$RepositoryStargazersStateImpl>

@@ -134,7 +134,7 @@ class MockRepositoryService extends _i1.Mock implements _i3.RepositoryService {
       ) as _i4.Future<_i2.RepositoryReadMe>);
 
   @override
-  _i4.Future<List<_i5.RepositoryOwner>> getRepositoryStargazers({
+  _i4.Future<List<_i5.GitHubUser>> getRepositoryStargazers({
     required String? owner,
     required String? name,
   }) =>
@@ -147,11 +147,10 @@ class MockRepositoryService extends _i1.Mock implements _i3.RepositoryService {
             #name: name,
           },
         ),
-        returnValue: _i4.Future<List<_i5.RepositoryOwner>>.value(
-            <_i5.RepositoryOwner>[]),
-        returnValueForMissingStub: _i4.Future<List<_i5.RepositoryOwner>>.value(
-            <_i5.RepositoryOwner>[]),
-      ) as _i4.Future<List<_i5.RepositoryOwner>>);
+        returnValue: _i4.Future<List<_i5.GitHubUser>>.value(<_i5.GitHubUser>[]),
+        returnValueForMissingStub:
+            _i4.Future<List<_i5.GitHubUser>>.value(<_i5.GitHubUser>[]),
+      ) as _i4.Future<List<_i5.GitHubUser>>);
 }
 
 /// A class which mocks [RepositoryDetailController].

@@ -21,7 +21,7 @@ Repository _$RepositoryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Repository {
   int get id => throw _privateConstructorUsedError;
-  RepositoryOwner get owner => throw _privateConstructorUsedError;
+  GitHubUser get owner => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   RepositoryVisibility get visibility =>
@@ -46,7 +46,7 @@ abstract class $RepositoryCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      RepositoryOwner owner,
+      GitHubUser owner,
       String name,
       String description,
       RepositoryVisibility visibility,
@@ -56,7 +56,7 @@ abstract class $RepositoryCopyWith<$Res> {
       int forks,
       int openIssues});
 
-  $RepositoryOwnerCopyWith<$Res> get owner;
+  $GitHubUserCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as RepositoryOwner,
+              as GitHubUser,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
 
   @override
   @pragma('vm:prefer-inline')
-  $RepositoryOwnerCopyWith<$Res> get owner {
-    return $RepositoryOwnerCopyWith<$Res>(_value.owner, (value) {
+  $GitHubUserCopyWith<$Res> get owner {
+    return $GitHubUserCopyWith<$Res>(_value.owner, (value) {
       return _then(_value.copyWith(owner: value) as $Val);
     });
   }
@@ -141,7 +141,7 @@ abstract class _$$RepositoryImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      RepositoryOwner owner,
+      GitHubUser owner,
       String name,
       String description,
       RepositoryVisibility visibility,
@@ -152,7 +152,7 @@ abstract class _$$RepositoryImplCopyWith<$Res>
       int openIssues});
 
   @override
-  $RepositoryOwnerCopyWith<$Res> get owner;
+  $GitHubUserCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -184,7 +184,7 @@ class __$$RepositoryImplCopyWithImpl<$Res>
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as RepositoryOwner,
+              as GitHubUser,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -239,7 +239,7 @@ class _$RepositoryImpl implements _Repository {
   @override
   final int id;
   @override
-  final RepositoryOwner owner;
+  final GitHubUser owner;
   @override
   final String name;
   @override
@@ -305,7 +305,7 @@ class _$RepositoryImpl implements _Repository {
 abstract class _Repository implements Repository {
   factory _Repository(
       {required final int id,
-      required final RepositoryOwner owner,
+      required final GitHubUser owner,
       required final String name,
       required final String description,
       required final RepositoryVisibility visibility,
@@ -321,7 +321,7 @@ abstract class _Repository implements Repository {
   @override
   int get id;
   @override
-  RepositoryOwner get owner;
+  GitHubUser get owner;
   @override
   String get name;
   @override
@@ -343,34 +343,34 @@ abstract class _Repository implements Repository {
       throw _privateConstructorUsedError;
 }
 
-RepositoryOwner _$RepositoryOwnerFromJson(Map<String, dynamic> json) {
-  return _RepositoryOwner.fromJson(json);
+GitHubUser _$GitHubUserFromJson(Map<String, dynamic> json) {
+  return _GitHubUser.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RepositoryOwner {
+mixin _$GitHubUser {
   String get login => throw _privateConstructorUsedError;
   String get avatarUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RepositoryOwnerCopyWith<RepositoryOwner> get copyWith =>
+  $GitHubUserCopyWith<GitHubUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RepositoryOwnerCopyWith<$Res> {
-  factory $RepositoryOwnerCopyWith(
-          RepositoryOwner value, $Res Function(RepositoryOwner) then) =
-      _$RepositoryOwnerCopyWithImpl<$Res, RepositoryOwner>;
+abstract class $GitHubUserCopyWith<$Res> {
+  factory $GitHubUserCopyWith(
+          GitHubUser value, $Res Function(GitHubUser) then) =
+      _$GitHubUserCopyWithImpl<$Res, GitHubUser>;
   @useResult
   $Res call({String login, String avatarUrl});
 }
 
 /// @nodoc
-class _$RepositoryOwnerCopyWithImpl<$Res, $Val extends RepositoryOwner>
-    implements $RepositoryOwnerCopyWith<$Res> {
-  _$RepositoryOwnerCopyWithImpl(this._value, this._then);
+class _$GitHubUserCopyWithImpl<$Res, $Val extends GitHubUser>
+    implements $GitHubUserCopyWith<$Res> {
+  _$GitHubUserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -397,22 +397,22 @@ class _$RepositoryOwnerCopyWithImpl<$Res, $Val extends RepositoryOwner>
 }
 
 /// @nodoc
-abstract class _$$RepositoryOwnerImplCopyWith<$Res>
-    implements $RepositoryOwnerCopyWith<$Res> {
-  factory _$$RepositoryOwnerImplCopyWith(_$RepositoryOwnerImpl value,
-          $Res Function(_$RepositoryOwnerImpl) then) =
-      __$$RepositoryOwnerImplCopyWithImpl<$Res>;
+abstract class _$$GitHubUserImplCopyWith<$Res>
+    implements $GitHubUserCopyWith<$Res> {
+  factory _$$GitHubUserImplCopyWith(
+          _$GitHubUserImpl value, $Res Function(_$GitHubUserImpl) then) =
+      __$$GitHubUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String login, String avatarUrl});
 }
 
 /// @nodoc
-class __$$RepositoryOwnerImplCopyWithImpl<$Res>
-    extends _$RepositoryOwnerCopyWithImpl<$Res, _$RepositoryOwnerImpl>
-    implements _$$RepositoryOwnerImplCopyWith<$Res> {
-  __$$RepositoryOwnerImplCopyWithImpl(
-      _$RepositoryOwnerImpl _value, $Res Function(_$RepositoryOwnerImpl) _then)
+class __$$GitHubUserImplCopyWithImpl<$Res>
+    extends _$GitHubUserCopyWithImpl<$Res, _$GitHubUserImpl>
+    implements _$$GitHubUserImplCopyWith<$Res> {
+  __$$GitHubUserImplCopyWithImpl(
+      _$GitHubUserImpl _value, $Res Function(_$GitHubUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -421,7 +421,7 @@ class __$$RepositoryOwnerImplCopyWithImpl<$Res>
     Object? login = null,
     Object? avatarUrl = null,
   }) {
-    return _then(_$RepositoryOwnerImpl(
+    return _then(_$GitHubUserImpl(
       login: null == login
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
@@ -437,11 +437,11 @@ class __$$RepositoryOwnerImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$RepositoryOwnerImpl implements _RepositoryOwner {
-  _$RepositoryOwnerImpl({required this.login, required this.avatarUrl});
+class _$GitHubUserImpl implements _GitHubUser {
+  _$GitHubUserImpl({required this.login, required this.avatarUrl});
 
-  factory _$RepositoryOwnerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RepositoryOwnerImplFromJson(json);
+  factory _$GitHubUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GitHubUserImplFromJson(json);
 
   @override
   final String login;
@@ -450,14 +450,14 @@ class _$RepositoryOwnerImpl implements _RepositoryOwner {
 
   @override
   String toString() {
-    return 'RepositoryOwner(login: $login, avatarUrl: $avatarUrl)';
+    return 'GitHubUser(login: $login, avatarUrl: $avatarUrl)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RepositoryOwnerImpl &&
+            other is _$GitHubUserImpl &&
             (identical(other.login, login) || other.login == login) &&
             (identical(other.avatarUrl, avatarUrl) ||
                 other.avatarUrl == avatarUrl));
@@ -470,25 +470,24 @@ class _$RepositoryOwnerImpl implements _RepositoryOwner {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RepositoryOwnerImplCopyWith<_$RepositoryOwnerImpl> get copyWith =>
-      __$$RepositoryOwnerImplCopyWithImpl<_$RepositoryOwnerImpl>(
-          this, _$identity);
+  _$$GitHubUserImplCopyWith<_$GitHubUserImpl> get copyWith =>
+      __$$GitHubUserImplCopyWithImpl<_$GitHubUserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RepositoryOwnerImplToJson(
+    return _$$GitHubUserImplToJson(
       this,
     );
   }
 }
 
-abstract class _RepositoryOwner implements RepositoryOwner {
-  factory _RepositoryOwner(
+abstract class _GitHubUser implements GitHubUser {
+  factory _GitHubUser(
       {required final String login,
-      required final String avatarUrl}) = _$RepositoryOwnerImpl;
+      required final String avatarUrl}) = _$GitHubUserImpl;
 
-  factory _RepositoryOwner.fromJson(Map<String, dynamic> json) =
-      _$RepositoryOwnerImpl.fromJson;
+  factory _GitHubUser.fromJson(Map<String, dynamic> json) =
+      _$GitHubUserImpl.fromJson;
 
   @override
   String get login;
@@ -496,6 +495,6 @@ abstract class _RepositoryOwner implements RepositoryOwner {
   String get avatarUrl;
   @override
   @JsonKey(ignore: true)
-  _$$RepositoryOwnerImplCopyWith<_$RepositoryOwnerImpl> get copyWith =>
+  _$$GitHubUserImplCopyWith<_$GitHubUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

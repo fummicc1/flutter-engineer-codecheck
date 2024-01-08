@@ -29,7 +29,7 @@ sealed class Repository with _$Repository {
   @JsonSerializable(fieldRename: FieldRename.snake)
   factory Repository({
     required int id,
-    required RepositoryOwner owner,
+    required GitHubUser owner,
     required String name,
     required String description,
     required RepositoryVisibility visibility,
@@ -54,14 +54,14 @@ extension RepositoryExtension on Repository {
 }
 
 @freezed
-class RepositoryOwner with _$RepositoryOwner {
+class GitHubUser with _$GitHubUser {
   // ignore: invalid_annotation_target
   @JsonSerializable(fieldRename: FieldRename.snake)
-  factory RepositoryOwner({
+  factory GitHubUser({
     required String login,
     required String avatarUrl,
-  }) = _RepositoryOwner;
+  }) = _GitHubUser;
 
-  factory RepositoryOwner.fromJson(Map<String, dynamic> json) =>
-      _$RepositoryOwnerFromJson(json);
+  factory GitHubUser.fromJson(Map<String, dynamic> json) =>
+      _$GitHubUserFromJson(json);
 }

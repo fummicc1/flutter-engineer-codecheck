@@ -7,7 +7,7 @@ class RepositoryTestHelper {
     return List.generate(count, (index) {
       return Repository(
         id: index + 1,
-        owner: RepositoryOwner(
+        owner: GitHubUser(
           login: faker.person.name(),
           avatarUrl: "https://picsum.photos/200",
         ),
