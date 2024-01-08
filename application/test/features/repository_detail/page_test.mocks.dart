@@ -169,4 +169,14 @@ class MockRepositoryDetailController extends _i1.Mock
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> launchRepositoryUrl() => (super.noSuchMethod(
+        Invocation.method(
+          #launchRepositoryUrl,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }

@@ -17,4 +17,6 @@ class RepositoryReadMe with _$RepositoryReadMe {
 
 extension RepositoryReadMeX on RepositoryReadMe {
   String get contentUrl => "https://github.com/$owner/$name?tab=readme-ov-file";
+
+  String get repoUrl => "https://github.com/$owner/$name";
 }
