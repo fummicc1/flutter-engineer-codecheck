@@ -99,7 +99,9 @@ void main() {
         const name = "name";
         when(apiClient.send(any)).thenAnswer(
           (_) async => Response(
-            readMeContent,
+            jsonEncode({
+              "content": base64Encode(utf8.encode(readMeContent)),
+            }),
             200,
           ),
         );
