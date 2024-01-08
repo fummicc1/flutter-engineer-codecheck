@@ -77,7 +77,9 @@ class RepositoryService {
       );
       final response = await _apiClient.send(request);
       if (response.statusCode == 200) {
-        final content = response.body;
+        final json = jsonDecode(response.body);
+        final base64Content = (json['content'] as String).replaceAll("\n", "");
+        final content = utf8.decode(base64.decode(base64Content));
         final repositoryReadMe = RepositoryReadMe(
           content: content,
           owner: owner,

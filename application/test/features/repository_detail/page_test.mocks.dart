@@ -140,6 +140,19 @@ class MockRepositoryService extends _i1.Mock implements _i3.RepositoryService {
 class MockRepositoryDetailController extends _i1.Mock
     implements _i7.RepositoryDetailController {
   @override
+  _i2.RepositoryReadMe get readMe => (super.noSuchMethod(
+        Invocation.getter(#readMe),
+        returnValue: _FakeRepositoryReadMe_0(
+          this,
+          Invocation.getter(#readMe),
+        ),
+        returnValueForMissingStub: _FakeRepositoryReadMe_0(
+          this,
+          Invocation.getter(#readMe),
+        ),
+      ) as _i2.RepositoryReadMe);
+
+  @override
   _i4.Future<void> onPressedReadMeLink({
     required String? text,
     required String? href,
